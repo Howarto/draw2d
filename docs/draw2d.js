@@ -14010,7 +14010,7 @@ _packages2.default.SVGFigure = _packages2.default.SetFigure.extend(
     },
 
     /**
-     * 
+     *
      * Returns the current used SVG as string
      *
      * @returns {String}
@@ -14020,7 +14020,7 @@ _packages2.default.SVGFigure = _packages2.default.SetFigure.extend(
     },
 
     /**
-     * 
+     *
      * Set the SVG of this shape
      *
      * @param {String} svg The new SVG to render as String
@@ -14062,7 +14062,7 @@ _packages2.default.SVGFigure = _packages2.default.SetFigure.extend(
     },
 
     /**
-     * 
+     *
      * Helper method to transform the SVG string into a raphaelJS set.
      *
      * @private
@@ -14158,7 +14158,6 @@ _packages2.default.SVGFigure = _packages2.default.SetFigure.extend(
                         shape = canvas.paper.ellipse();
                         break;
                     case 'path':
-                        attr.fill = "none";
                         shape = canvas.paper.path(attr.d);
                         break;
                     case 'line':
@@ -14262,7 +14261,7 @@ _packages2.default.SVGFigure = _packages2.default.SetFigure.extend(
     },
 
     /**
-     * 
+     *
      * Read all attributes from the serialized properties and transfer them into the shape.
      *
      * @param {Object} memento

@@ -14,7 +14,7 @@ import extend from 'util/extend'
 draw2d.SVGFigure = draw2d.SetFigure.extend(
     /** @lends draw2d.SVGFigure.prototype */
     {
-    
+
     NAME: "draw2d.SVGFigure",
 
     /**
@@ -56,7 +56,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend(
 	},
 
     /**
-     * 
+     *
      * Returns the current used SVG as string
      *
      * @returns {String}
@@ -67,7 +67,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend(
     },
 
     /**
-     * 
+     *
      * Set the SVG of this shape
      *
      * @param {String} svg The new SVG to render as String
@@ -112,7 +112,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend(
 
 
     /**
-     * 
+     *
      * Helper method to transform the SVG string into a raphaelJS set.
      *
      * @private
@@ -212,7 +212,6 @@ draw2d.SVGFigure = draw2d.SetFigure.extend(
               shape = canvas.paper.ellipse();
               break;
             case 'path':
-              attr.fill ="none";
               shape = canvas.paper.path(attr.d);
               break;
             case 'line':
@@ -325,7 +324,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend(
     },
 
     /**
-     * 
+     *
      * Read all attributes from the serialized properties and transfer them into the shape.
      *
      * @param {Object} memento
