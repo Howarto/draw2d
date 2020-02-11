@@ -187,6 +187,7 @@ require('./Port');
 require('./InputPort');
 require('./OutputPort');
 require('./HybridPort');
+require('./ContextPort');
 require('./layout/anchor/ConnectionAnchor');
 require('./layout/anchor/ChopboxConnectionAnchor');
 require('./layout/anchor/FanConnectionAnchor');

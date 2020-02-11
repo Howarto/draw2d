@@ -61,6 +61,10 @@ draw2d.Configuration = {
         // @since 5.3.0
         createHybridPort: function(relatedFigure){
             return new draw2d.HybridPort();
+        },
+        // @since 5.3.0
+        createContextPort: function(relatedFigure){
+            return new draw2d.ContextPort();
         }
     }
 };

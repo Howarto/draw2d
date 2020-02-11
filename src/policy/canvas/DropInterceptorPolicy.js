@@ -74,6 +74,22 @@ draw2d.policy.canvas.DropInterceptorPolicy = draw2d.policy.canvas.CanvasPolicy.e
       return null
     }
 
+    // ContextPort can only be connected with another ContextPort.
+    let inquirerIsUniqueContextPort = connectInquirer instanceof draw2d.ContextPort &&
+                                    !(connectIntent instanceof draw2d.ContextPort);
+    let intentIsUniqueContextPort = !(connectInquirer instanceof draw2d.ContextPort) &&
+                                      connectIntent instanceof draw2d.ContextPort;
+    if (inquirerIsUniqueContextPort || intentIsUniqueContextPort) {
+      return null;
+    }
+
+    // It is not allowed to connect ContextPort instances without the same context.
+    let portsAreContextPorts = connectInquirer instanceof draw2d.ContextPort &&
+                               connectIntent instanceof draw2d.ContextPort;
+    if (portsAreContextPorts && connectInquirer.getContext() !== connectIntent.getContext()) {
+      return null
+    }
+
     // It is not possible to create a loop back connection at the moment.
     // Reason: no connection router implemented for this case
     if ((connectInquirer instanceof draw2d.Port) && (connectIntent instanceof draw2d.Port)) {

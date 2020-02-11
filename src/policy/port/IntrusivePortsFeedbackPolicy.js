@@ -44,11 +44,19 @@ draw2d.policy.port.IntrusivePortsFeedbackPolicy = draw2d.policy.port.PortFeedbac
     })
 
 
-    // animate the resize of the ports
-    //
+    // Animate the resize of the ports.
+
+    // The available connections are:
+    // Input -> Output
+    // Output -> Input
+    // Context with 'x' context -> Context with 'x' context
     allPorts.grep(function (p) {
-      return (p.NAME != figure.NAME && p.parent !== figure.parent) || (p instanceof draw2d.HybridPort) || (figure instanceof draw2d.HybridPort)
+      return ((figure instanceof draw2d.ContextPort && p instanceof draw2d.ContextPort) &&
+              (figure.getContext() === p.getContext())) ||
+             (!(figure instanceof draw2d.ContextPort) &&
+              ((p instanceof draw2d.HybridPort) || (figure instanceof draw2d.HybridPort) || (p.NAME != figure.NAME && p.parent !== figure.parent)));
     })
+
     this.tweenable = new Tweenable()
     this.tweenable.tween({
       from: {'size': start / 2},

@@ -25,6 +25,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
     this.inputPorts = new draw2d.util.ArrayList()
     this.outputPorts = new draw2d.util.ArrayList()
     this.hybridPorts = new draw2d.util.ArrayList()
+    this.contextPorts = new draw2d.util.ArrayList()
 
     // flag which indicates if the figure should read/write ports to
     // JSON
@@ -148,6 +149,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
       ports.addAll(this.inputPorts)
       ports.addAll(this.outputPorts)
       ports.addAll(this.hybridPorts)
+      ports.addAll(this.contextPorts)
       return ports
     }
 
@@ -156,6 +158,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
       this.cachedPorts.addAll(this.inputPorts)
       this.cachedPorts.addAll(this.outputPorts)
       this.cachedPorts.addAll(this.hybridPorts)
+      this.cachedPorts.addAll(this.contextPorts)
 
       this.children.each((i, e) => {
         this.cachedPorts.addAll(e.figure.getPorts())
@@ -175,6 +178,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
     return this.inputPorts
       .clone()
       .addAll(this.hybridPorts)
+      .addAll(this.contextPorts)
   },
 
   /**
@@ -187,6 +191,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
     return this.outputPorts
       .clone()
       .addAll(this.hybridPorts)
+      .addAll(this.contextPorts)
   },
 
 
@@ -288,11 +293,11 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
 
   /**
    * @method
-   * Return the input port with the corresponding name.
+   * Return the hybrid port with the corresponding name.
    *
    *
    * @param {String/Number} portNameOrIndex The name or numeric index of the port to return.
-   * @return {draw2d.InputPort} Returns the port with the hands over name or null.
+   * @return {draw2d.HybridPort} Returns the port with the hands over name or null.
    **/
   getHybridPort: function (portNameOrIndex) {
     if (typeof portNameOrIndex === "number") {
@@ -301,6 +306,29 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
 
     for (let i = 0; i < this.hybridPorts.getSize(); i++) {
       let port = this.hybridPorts.get(i)
+      if (port.getName() === portNameOrIndex) {
+        return port
+      }
+    }
+
+    return null
+  },
+
+  /**
+   * @method
+   * Return the context port with the corresponding name.
+   *
+   *
+   * @param {String/Number} portNameOrIndex The name or numeric index of the port to return.
+   * @return {draw2d.ContextPort} Returns the port with the hands over name or null.
+   **/
+  getContextPort: function (portNameOrIndex) {
+    if (typeof portNameOrIndex === "number") {
+      return this.contextPorts.get(portNameOrIndex)
+    }
+
+    for (let i = 0; i < this.contextPorts.getSize(); i++) {
+      let port = this.contextPorts.get(i)
       if (port.getName() === portNameOrIndex) {
         return port
       }
@@ -336,6 +364,9 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
     }
     else if (port instanceof draw2d.HybridPort) {
       this.hybridPorts.add(port)
+    }
+    else if (port instanceof draw2d.ContextPort) {
+      this.contextPorts.add(port)
     }
 
     if ((typeof locator !== "undefined") && (locator instanceof draw2d.layout.locator.Locator)) {
@@ -381,6 +412,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
     this.inputPorts.remove(port)
     this.outputPorts.remove(port)
     this.hybridPorts.remove(port)
+    this.contextPorts.remove(port)
 
     if (port.getCanvas() !== null) {
       port.getCanvas().unregisterPort(port)
@@ -421,6 +453,10 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
       case "hybrid":
         newPort = draw2d.Configuration.factory.createHybridPort(this)
         count = this.hybridPorts.getSize()
+        break
+      case "context":
+        newPort = draw2d.Configuration.factory.createContextPort(this)
+        count = this.contextPorts.getSize()
         break
       default:
         throw "Unknown type [" + type + "] of port requested"
@@ -544,6 +580,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend({
     this.outputPorts.each((i, port) => port.locator.relocate(i, port))
     this.inputPorts.each((i, port) => port.locator.relocate(i, port))
     this.hybridPorts.each((i, port) => port.locator.relocate(i, port))
+    this.contextPorts.each((i, port) => port.locator.relocate(i, port))
 
     return this
   },
