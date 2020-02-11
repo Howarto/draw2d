@@ -60668,7 +60668,7 @@ _packages2.default.shape.node.Node = _packages2.default.Figure.extend(
    * @return {draw2d.util.ArrayList}
    **/
   getInputPorts: function getInputPorts() {
-    return this.inputPorts.clone().addAll(this.hybridPorts).addAll(this.contextPorts);
+    return this.inputPorts.clone();
   },
 
   /**
@@ -60678,7 +60678,27 @@ _packages2.default.shape.node.Node = _packages2.default.Figure.extend(
    * @return {draw2d.util.ArrayList}
    **/
   getOutputPorts: function getOutputPorts() {
-    return this.outputPorts.clone().addAll(this.hybridPorts).addAll(this.contextPorts);
+    return this.outputPorts.clone();
+  },
+
+  /**
+   *
+   * Return all hybrid ports of the node.
+   *
+   * @return {draw2d.util.ArrayList}
+   **/
+  getHybridPorts: function getHybridPorts() {
+    return this.hybridPorts.clone();
+  },
+
+  /**
+   *
+   * Return all context ports of the node.
+   *
+   * @return {draw2d.util.ArrayList}
+   **/
+  getContextPorts: function getContextPorts() {
+    return this.contextPorts.clone();
   },
 
   /**

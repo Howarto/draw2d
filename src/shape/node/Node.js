@@ -177,10 +177,7 @@ draw2d.shape.node.Node = draw2d.Figure.extend(
    * @return {draw2d.util.ArrayList}
    **/
   getInputPorts: function () {
-    return this.inputPorts
-      .clone()
-      .addAll(this.hybridPorts)
-      .addAll(this.contextPorts)
+    return this.inputPorts.clone();
   },
 
   /**
@@ -190,12 +187,28 @@ draw2d.shape.node.Node = draw2d.Figure.extend(
    * @return {draw2d.util.ArrayList}
    **/
   getOutputPorts: function () {
-    return this.outputPorts
-      .clone()
-      .addAll(this.hybridPorts)
-      .addAll(this.contextPorts)
+    return this.outputPorts.clone();
   },
 
+  /**
+   *
+   * Return all hybrid ports of the node.
+   *
+   * @return {draw2d.util.ArrayList}
+   **/
+  getHybridPorts: function () {
+    return this.hybridPorts.clone();
+  },
+
+  /**
+   *
+   * Return all context ports of the node.
+   *
+   * @return {draw2d.util.ArrayList}
+   **/
+  getContextPorts: function () {
+    return this.contextPorts.clone();
+  },
 
   /**
    *
