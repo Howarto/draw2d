@@ -1,11 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.note.PostIt
  *
  * Simple Post-it like figure with text. Can be used for annotations or documentation.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let shape =  new draw2d.shape.note.PostIt({
  *        text:"This is a simple sticky note",
@@ -18,14 +20,13 @@
  * @author Andreas Herz
  * @extends draw2d.shape.basic.Label
  */
-import draw2d from '../../packages'
-
-draw2d.shape.note.PostIt = draw2d.shape.basic.Label.extend({
+draw2d.shape.note.PostIt = draw2d.shape.basic.Label.extend(
+  /** @lends draw2d.shape.note.PostIt.prototype */
+  {
 
   NAME: "draw2d.shape.note.PostIt",
 
   /**
-   * @constructor
    *
    * @param {Object} [attr] the configuration of the shape
    */

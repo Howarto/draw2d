@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.basic.LineEndResizeHandle
  *
@@ -8,18 +11,22 @@
  * @author Andreas Herz
  * @extends draw2d.shape.basic.LineResizeHandle
  */
-import draw2d from '../../packages'
+draw2d.shape.basic.LineEndResizeHandle = draw2d.shape.basic.LineResizeHandle.extend(
+  /** @lends draw2d.shape.basic.LineEndResizeHandle.prototype */
+  {
 
-draw2d.shape.basic.LineEndResizeHandle = draw2d.shape.basic.LineResizeHandle.extend({
   NAME: "draw2d.shape.basic.LineEndResizeHandle",
 
+  /**
+   *
+   */
   init: function (figure) {
     this._super({owner: figure, index: figure.getVertices().getSize() - 1})
   },
 
 
   /**
-   * @method
+   *
    * Return the Port assigned to this ResizeHandle if the line is an instance of draw2d.Connection
    *
    * @return {draw2d.Port}
@@ -33,7 +40,7 @@ draw2d.shape.basic.LineEndResizeHandle = draw2d.shape.basic.LineResizeHandle.ext
   },
 
   /**
-   * @method
+   *
    * Return the peer Port assigned to this ResizeHandle if the line is an instance of draw2d.Connection
    *
    * @returns {draw2d.Port}
@@ -48,7 +55,7 @@ draw2d.shape.basic.LineEndResizeHandle = draw2d.shape.basic.LineResizeHandle.ext
 
 
   /**
-   * @method
+   *
    * Called from the framework during a drag&drop operation
    *
    * @param {Number} dx the x difference between the start of the drag drop operation and now
@@ -76,7 +83,7 @@ draw2d.shape.basic.LineEndResizeHandle = draw2d.shape.basic.LineResizeHandle.ext
   },
 
   /**
-   * @method
+   *
    * Resizehandle has been drop on a InputPort/OutputPort.
    *
    * @param {draw2d.Figure} dropTarget
@@ -97,7 +104,7 @@ draw2d.shape.basic.LineEndResizeHandle = draw2d.shape.basic.LineResizeHandle.ext
   },
 
   /**
-   * @method
+   *
    * Controls the location of the resize handle
    *
    **/

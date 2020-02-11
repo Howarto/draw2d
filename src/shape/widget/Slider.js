@@ -1,18 +1,20 @@
+import draw2d from '../../packages'
+import {Tweenable} from 'shifty'
+
+
 /**
  * @class draw2d.shape.widget.Slider
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let slider = new draw2d.shape.widget.Slider({width:120, height:20});
  *     canvas.add( slider,100,60);
  *
  * @extends draw2d.shape.widget.Widget
  */
-import draw2d from '../../packages'
-import {Tweenable} from 'shifty'
-
-draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
+draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend(
+  /** @lends draw2d.shape.widget.Slider.prototype */
+  {
 
   NAME: "draw2d.shape.widget.Slider",
 
@@ -39,9 +41,9 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
         value: 50
       }, attr),
       extend({
-        /** @attr {Number} padding the padding in pixel around the text */
+        // @attr {Number} padding the padding in pixel around the text */
         padding: this.setPadding,
-        /** @attr {Number} value the new value of the slider. values must be in range of [0..100] */
+        // @attr {Number} value the new value of the slider. values must be in range of [0..100] */
         value: this.setValue
       }, setter),
       extend({
@@ -54,7 +56,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
   },
 
   /**
-   * @method
+   * 
    * Create the additional elements for the figure
    *
    */
@@ -82,7 +84,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
 
 
   /**
-   * @method
+   * 
    * Set the padding of the element
    *
    *      // Alternatively you can use the attr method:
@@ -116,7 +118,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
 
 
   /**
-   * @method
+   * 
    * Get the padding of the element.
    *
    * @since 5.6.0
@@ -126,7 +128,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
   },
 
   /**
-   * @method
+   * 
    * Called if the value of the slider has been changed.
    *
    * @param {Number} value The new value of the slider in percentage [0..100]
@@ -136,7 +138,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
   },
 
   /**
-   * @method
+   * 
    * Will be called if the drag and drop action begins. You can return [false] if you
    * want avoid that the figure can be move.
    *
@@ -177,7 +179,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the framework if the figure returns false for the drag operation. In this
    * case we send a "panning" event - mouseDown + mouseMove. This is very useful for
    * UI-Widget like slider, spinner,...
@@ -226,7 +228,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the current value of the slider. Valid values are [0..100]
    *
    * @param {Number} value values between [0..100]
@@ -241,7 +243,7 @@ draw2d.shape.widget.Slider = draw2d.shape.widget.Widget.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns the current value of the slider
    *
    * @since 5.6.0

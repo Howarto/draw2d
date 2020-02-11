@@ -1,9 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.connection.SketchConnectionRouter
  *
  * Provide a router which routes the connection in a hand drawn manner.
  *
- *     @example preview small frame
+ * @example
  *
  *     let createConnection=function(){
  *        let con = new draw2d.Connection();
@@ -39,14 +42,14 @@
  * @since 2.7.2
  * @extends  draw2d.layout.connection.MazeConnectionRouter
  */
-import draw2d from '../../packages'
+draw2d.layout.connection.SketchConnectionRouter = draw2d.layout.connection.MazeConnectionRouter.extend(
+  /** @lends draw2d.layout.connection.SketchConnectionRouter.prototype */
+  {
 
-draw2d.layout.connection.SketchConnectionRouter = draw2d.layout.connection.MazeConnectionRouter.extend({
   NAME: "draw2d.layout.connection.SketchConnectionRouter",
 
 
   /**
-   * @constructor
    * Creates a new Router object.
    *
    */
@@ -60,7 +63,7 @@ draw2d.layout.connection.SketchConnectionRouter = draw2d.layout.connection.MazeC
   },
 
   /**
-   * @method
+   *
    * Callback method if the router has been assigned to a connection.
    *
    * @param {draw2d.Connection} connection The assigned connection

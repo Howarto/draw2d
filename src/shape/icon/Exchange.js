@@ -1,9 +1,11 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.icon.Exchange
 
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let icon =  new draw2d.shape.icon.Exchange();
  *
@@ -13,16 +15,16 @@
  * @author Andreas Herz
  * @extends draw2d.shape.icon.Icon
  */
-import draw2d from '../../packages'
+draw2d.shape.icon.Exchange = draw2d.shape.icon.Icon.extend(
+  /** @lends draw2d.shape.icon.Exchange.prototype */
+  {
 
-draw2d.shape.icon.Exchange = draw2d.shape.icon.Icon.extend({
   NAME: "draw2d.shape.icon.Exchange",
 
   /**
    *
-   * @constructor
    * Creates a new icon element which are not assigned to any canvas.
-   *
+   * 
    * @param {Object} attr the configuration of the shape
    */
   init: function (attr, setter, getter) {

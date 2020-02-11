@@ -1,17 +1,20 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.icon.Icon
  * @inheritable
  * @author Andreas Herz
  * @extends draw2d.SetFigure
  */
-import draw2d from '../../packages'
+draw2d.shape.icon.Icon = draw2d.SetFigure.extend(
+  /** @lends draw2d.shape.icon.Icon.prototype */
+  {
 
-draw2d.shape.icon.Icon = draw2d.SetFigure.extend({
   NAME: "draw2d.shape.icon.Icon",
 
   /**
    *
-   * @constructor
    * Creates a new figure element which are not assigned to any canvas.
    *
    * @param {Object} attr the configuration of the shape
@@ -23,7 +26,7 @@ draw2d.shape.icon.Icon = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   * 
    * propagate all attributes like color, stroke,... to the shape element
    **/
   repaint: function (attributes) {

@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.locator.DraggableLocator
  *
@@ -5,23 +8,17 @@
  * possible to move a child node via drag&drop.
  *
  *
- * See the example:
- *
- *     @example preview small frame
- *
- *
- *
  *
  * @author Andreas Herz
  * @extend draw2d.layout.locator.Locator
  */
-import draw2d from '../../packages'
-
-draw2d.layout.locator.DraggableLocator = draw2d.layout.locator.Locator.extend({
+draw2d.layout.locator.DraggableLocator = draw2d.layout.locator.Locator.extend(
+  /** @lends draw2d.layout.locator.DraggableLocator.prototype */
+  {
+  
   NAME: "draw2d.layout.locator.DraggableLocator",
 
   /**
-   * @constructor
    * Constructs a locator with associated parent.
    *
    */

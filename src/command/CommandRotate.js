@@ -1,3 +1,6 @@
+import draw2d from '../packages'
+
+
 /**
  * @class draw2d.command.CommandRotate
  *
@@ -8,13 +11,13 @@
  * @author Andreas Herz
  * @extends draw2d.command.Command
  */
-import draw2d from '../packages'
+draw2d.command.CommandRotate = draw2d.command.Command.extend(
+  /** @lends draw2d.command.CommandRotate.prototype */
+  {
 
-draw2d.command.CommandRotate = draw2d.command.Command.extend({
   NAME: "draw2d.command.CommandRotate",
 
   /**
-   * @constructor
    * Create a new resize Command objects which can be execute via the CommandStack.
    *
    * @param {draw2d.Figure} figure the figure to resize
@@ -30,7 +33,7 @@ draw2d.command.CommandRotate = draw2d.command.Command.extend({
 
 
   /**
-   * @method
+   *
    * Returns [true] if the command can be execute and the execution of the
    * command modify the model. A CommandMove with [startX,startX] == [endX,endY] should
    * return false. <br>
@@ -44,7 +47,7 @@ draw2d.command.CommandRotate = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   *
    * Execute the command the first time
    *
    **/
@@ -53,7 +56,7 @@ draw2d.command.CommandRotate = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   *
    * Undo the command
    *
    **/
@@ -62,7 +65,7 @@ draw2d.command.CommandRotate = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   *
    * Redo the command after the user has undo this command
    *
    **/

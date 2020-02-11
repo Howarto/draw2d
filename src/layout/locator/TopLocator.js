@@ -1,13 +1,14 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.locator.TopLocator
  *
  * A TopLocator  is used to place figures at the top/center of a parent shape.
  *
  *
- * See the example:
  *
- *     @example preview small frame
- *
+ * @example
  *
  *     // create a basic figure and add a Label/child via API call
  *     //
@@ -26,13 +27,13 @@
  * @author Andreas Herz
  * @extend draw2d.layout.locator.Locator
  */
-import draw2d from '../../packages'
+draw2d.layout.locator.TopLocator = draw2d.layout.locator.Locator.extend(
+  /** @lends draw2d.layout.locator.TopLocator.prototype */
+  {
 
-draw2d.layout.locator.TopLocator = draw2d.layout.locator.Locator.extend({
   NAME: "draw2d.layout.locator.TopLocator",
 
   /**
-   * @constructor
    * Constructs a ManhattanMidpointLocator with associated Connection c.
    *
    */
@@ -42,7 +43,7 @@ draw2d.layout.locator.TopLocator = draw2d.layout.locator.Locator.extend({
 
 
   /**
-   * @method
+   * 
    * Relocates the given Figure.
    *
    * @param {Number} index child index of the target

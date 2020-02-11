@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.composite.Jailhouse
  *
@@ -11,13 +14,13 @@
  * @extends draw2d.shape.composite.StrongComposite
  * @since 4.8.0
  */
-import draw2d from '../../packages'
+draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend(
+  /** @lends draw2d.shape.composite.Jailhouse.prototype */
+  {
 
-draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend({
   NAME: "draw2d.shape.composite.Jailhouse",
 
   /**
-   * @constructor
    * Creates a new figure element which are not assigned to any canvas.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -30,7 +33,7 @@ draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend
   },
 
   /**
-   * @method
+   * 
    * Set the new width and height of the figure and update the constraint policy for the assigned
    * figures..
    *
@@ -44,7 +47,7 @@ draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend
 
 
   /**
-   * @method
+   * 
    * Set the position of the object.
    *
    * @param {Number/draw2d.geo.Point} x The new x coordinate of the figure
@@ -75,7 +78,7 @@ draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend
   },
 
   /**
-   * @method
+   * 
    * Assign a figure to the given group.
    * The bounding box of the group is recalculated and the union of the current bounding box with the
    * figure bounding box.
@@ -96,7 +99,7 @@ draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend
   },
 
   /**
-   * @method
+   * 
    * Remove the given figure from the group assignment
    *
    * @param {draw2d.Figure} figure the figure to remove
@@ -127,7 +130,7 @@ draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend
 
 
   /**
-   * @method
+   * 
    * Return the minWidth of the jailhouse. The minWidth is calculated by care the assigned figures.
    *
    *
@@ -143,7 +146,7 @@ draw2d.shape.composite.Jailhouse = draw2d.shape.composite.StrongComposite.extend
   },
 
   /**
-   * @method
+   * 
    *
    * @private
    * @returns

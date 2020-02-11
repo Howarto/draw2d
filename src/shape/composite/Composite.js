@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.composite.Composite
  * Base interface for the compiste shapes
@@ -6,13 +9,13 @@
  * @extends draw2d.shape.basic.Rectangle
  * @since 4.7.2
  */
-import draw2d from '../../packages'
+draw2d.shape.composite.Composite = draw2d.SetFigure.extend(
+  /** @lends draw2d.shape.composite.Composite.prototype */
+  {
 
-draw2d.shape.composite.Composite = draw2d.SetFigure.extend({
   NAME: "draw2d.shape.composite.Composite",
 
   /**
-   * @constructor
    * Creates a new composite element which are not assigned to any canvas.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -22,7 +25,7 @@ draw2d.shape.composite.Composite = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   * 
    * Called when a user dbl clicks on the element
    *
    * @template
@@ -32,7 +35,7 @@ draw2d.shape.composite.Composite = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   * 
    * Delegate method to calculate if a figure is selectable. A composite has the right to override the
    * initial selectable flag of the figure.
    *
@@ -46,7 +49,7 @@ draw2d.shape.composite.Composite = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   * 
    * Delegate method to calculate if a figure is draggable. A composite has the right to override the
    * initial draggable flag of the figure.
    *
@@ -61,7 +64,7 @@ draw2d.shape.composite.Composite = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   * 
    * Set the canvas element of this figures. This can be used to determine whenever an element
    * is added or removed to the canvas.
    *

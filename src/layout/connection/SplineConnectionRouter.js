@@ -1,9 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.connection.SplineConnectionRouter
  *
  * A ManhattanConnectionRouter with an spline interpolation between the bend points.
  *
- *     @example preview small frame
+ * @example
  *
  *     let createConnection=function(){
  *        let con = new draw2d.Connection();
@@ -38,14 +41,14 @@
  * @author Andreas Herz
  * @extends draw2d.layout.connection.ManhattanConnectionRouter
  */
-import draw2d from '../../packages'
-
-draw2d.layout.connection.SplineConnectionRouter = draw2d.layout.connection.ManhattanConnectionRouter.extend({
-
+draw2d.layout.connection.SplineConnectionRouter = draw2d.layout.connection.ManhattanConnectionRouter.extend(
+  /** @lends draw2d.layout.connection.SplineConnectionRouter.prototype */
+  {
+  
   NAME: "draw2d.layout.connection.SplineConnectionRouter",
 
   /**
-   * @constructor Creates a new Router object
+   * Creates a new Router object
    */
   init: function () {
     this._super()
@@ -59,7 +62,7 @@ draw2d.layout.connection.SplineConnectionRouter = draw2d.layout.connection.Manha
 
 
   /**
-   * @method
+   *
    * Callback method if the router has been assigned to a connection.
    *
    * @param {draw2d.Connection} connection The assigned connection

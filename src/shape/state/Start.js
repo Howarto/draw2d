@@ -1,11 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.state.Start
  *
  * The start node for a state diagram
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let figure =  new draw2d.shape.state.Start({color:"#3d3d3d"});
  *
@@ -13,9 +15,9 @@
  *
  * @extends draw2d.shape.basic.Rectangle
  */
-import draw2d from '../../packages'
-
-draw2d.shape.state.Start = draw2d.shape.basic.Circle.extend({
+draw2d.shape.state.Start = draw2d.shape.basic.Circle.extend(
+  /** @lends draw2d.shape.state.Start.prototype */
+  {
 
   NAME: "draw2d.shape.state.Start",
 

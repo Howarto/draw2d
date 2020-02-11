@@ -5,19 +5,21 @@
  *
  * @author Andreas Herz
  */
-import draw2d from '../../packages';
+import draw2d from '../../packages'
 
-draw2d.layout.mesh.MeshLayouter = Class.extend({
+draw2d.layout.mesh.MeshLayouter = Class.extend(
+  /** @lends draw2d.layout.mesh.MeshLayouter.prototype */
+
+  {
 
 	/**
-	 * @constructor
 	 * Creates a new layouter object.
 	 */
     init: function(){
     },
 
     /**
-     * @method
+     * 
      * Return a changes list for an existing mesh/canvas to ensure that the element to insert
      * did have enough space.
      *

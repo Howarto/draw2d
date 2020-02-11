@@ -1,12 +1,14 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.locator.RightLocator
  *
  * A RightLocator is used to place figures to the right of a parent shape.
  *
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *
  *     // create a basic figure and add a Label/child via API call
@@ -21,13 +23,13 @@
  * @author Andreas Herz
  * @extend draw2d.layout.locator.Locator
  */
-import draw2d from '../../packages'
-
-draw2d.layout.locator.RightLocator = draw2d.layout.locator.Locator.extend({
+draw2d.layout.locator.RightLocator = draw2d.layout.locator.Locator.extend(
+  /** @lends draw2d.layout.locator.RightLocator.prototype */
+  {
+  
   NAME: "draw2d.layout.locator.RightLocator",
 
   /**
-   * @constructor
    * Constructs a locator with associated parent.
    *
    */
@@ -39,7 +41,7 @@ draw2d.layout.locator.RightLocator = draw2d.layout.locator.Locator.extend({
 
 
   /**
-   * @method
+   * 
    * Relocates the given Figure.
    *
    * @param {Number} index child index of the target

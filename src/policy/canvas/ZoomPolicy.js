@@ -1,3 +1,7 @@
+import draw2d from '../../packages'
+import {Tweenable} from "shifty"
+
+
 /**
  * @class draw2d.policy.canvas.ZoomPolicy
  * Generic zoom policy installable into a canvas object.
@@ -9,15 +13,13 @@
  * @extends draw2d.policy.canvas.CanvasPolicy
  * @since 5.8.0
  */
-import draw2d from '../../packages'
-import {Tweenable} from "shifty"
-
-draw2d.policy.canvas.ZoomPolicy = draw2d.policy.canvas.CanvasPolicy.extend({
+draw2d.policy.canvas.ZoomPolicy = draw2d.policy.canvas.CanvasPolicy.extend(
+  /** @lends draw2d.policy.canvas.ZoomPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.canvas.ZoomPolicy",
 
   /**
-   * @constructor
    */
   init: function () {
     this._super()
@@ -32,7 +34,7 @@ draw2d.policy.canvas.ZoomPolicy = draw2d.policy.canvas.CanvasPolicy.extend({
     this._super(canvas)
   },
 
-  /** @method
+  /** 
    * Set the new zoom factor for the canvas. The value must be between [0.01..10]
    *
    *      // you can register an eventhandler to listen to the zoom factor of the canvas.

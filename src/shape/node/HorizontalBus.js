@@ -1,11 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.node.HorizontalBus
  *
  * A horizontal bus shape with a special kind of port handling. The hole figure is a hybrid port.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let figure =  new draw2d.shape.node.HorizontalBus({width:300, height:20, text:"Horizontal Bus"});
  *
@@ -13,14 +15,13 @@
  *
  * @extends draw2d.shape.node.Hub
  */
-import draw2d from '../../packages'
-
-draw2d.shape.node.HorizontalBus = draw2d.shape.node.Hub.extend({
+draw2d.shape.node.HorizontalBus = draw2d.shape.node.Hub.extend(
+  /** @lends draw2d.shape.node.HorizontalBus.prototype */
+  {
 
   NAME: "draw2d.shape.node.HorizontalBus",
 
   /**
-   * @constructor
    *
    * @param {Object} [attr] the configuration of the shape
    */

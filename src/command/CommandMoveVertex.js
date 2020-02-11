@@ -1,3 +1,6 @@
+import draw2d from '../packages'
+
+
 /**
  * @class draw2d.command.CommandMoveVertex
  *
@@ -8,13 +11,13 @@
  *
  * @extends draw2d.command.Command
  */
-import draw2d from '../packages'
+draw2d.command.CommandMoveVertex = draw2d.command.Command.extend(
+  /** @lends draw2d.command.CommandMoveVertex.prototype */
+  {
 
-draw2d.command.CommandMoveVertex = draw2d.command.Command.extend({
   NAME: "draw2d.command.CommandMoveVertex",
 
   /**
-   * @constructor
    * Create a new Command objects which can be execute via the CommandStack.
    *
    * @param {draw2d.shape.basic.PolyLine} line the related line
@@ -29,7 +32,7 @@ draw2d.command.CommandMoveVertex = draw2d.command.Command.extend({
 
 
   /**
-   * @method
+   * 
    * Set the index of the vertex of the polyline/polygon to modify.
    *
    * @param {Number} index the related index of the vertex
@@ -44,7 +47,7 @@ draw2d.command.CommandMoveVertex = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns [true] if the command can be execute and the execution of the
    * command modify the model. A CommandMove with [startX,startX] == [endX,endY] should
    * return false. <br>
@@ -58,7 +61,7 @@ draw2d.command.CommandMoveVertex = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    * Execute the command the first time
    *
    **/
@@ -67,7 +70,7 @@ draw2d.command.CommandMoveVertex = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * Undo the move command
    *
@@ -77,7 +80,7 @@ draw2d.command.CommandMoveVertex = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * Redo the move command after the user has undo this command
    *

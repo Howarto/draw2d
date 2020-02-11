@@ -1,11 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.ShowChessboardEditPolicy
  *
  * Just to paint a grid in the background.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     canvas.installEditPolicy(new draw2d.policy.canvas.ShowChessboardEditPolicy());
  *     var shape =  new draw2d.shape.basic.Text({text:"This is a simple text in a canvas with chessboard background."});
@@ -16,17 +18,16 @@
  *
  * @extends draw2d.policy.canvas.DecorationPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.ShowChessboardEditPolicy = draw2d.policy.canvas.DecorationPolicy.extend({
-
+draw2d.policy.canvas.ShowChessboardEditPolicy = draw2d.policy.canvas.DecorationPolicy.extend(
+  /** @lends draw2d.policy.canvas.ShowChessboardEditPolicy.prototype */
+  {
+  
   NAME: "draw2d.policy.canvas.ShowChessboardEditPolicy",
 
   GRID_COLOR: "#e0e0e0",
   GRID_WIDTH: 20,
 
   /**
-   * @constructor
    * Creates a new constraint policy for snap to grid
    *
    * @param {Number} grid the grid width of the canvas
@@ -53,7 +54,7 @@ draw2d.policy.canvas.ShowChessboardEditPolicy = draw2d.policy.canvas.DecorationP
   },
 
   /**
-   * @method
+   *
    * paint the grid into the canvas
    *
    * @private

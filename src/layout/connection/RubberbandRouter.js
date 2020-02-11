@@ -1,10 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.connection.RubberbandRouter
  * Router for direct connections between two ports with a rubber band effect
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let RubberConnection= draw2d.Connection.extend({
  *         NAME: "RubberConnection",
@@ -72,15 +74,15 @@
  *
  * @extends  draw2d.layout.connection.ConnectionRouter
  */
-import draw2d from '../../packages'
-
-draw2d.layout.connection.RubberbandRouter = draw2d.layout.connection.ConnectionRouter.extend({
+draw2d.layout.connection.RubberbandRouter = draw2d.layout.connection.ConnectionRouter.extend(
+  /** @lends draw2d.layout.connection.RubberbandRouter.prototype */
+  {
 
   NAME: "draw2d.layout.connection.RubberbandRouter",
 
   /**
-   * @constructor
    * Creates a new Router object
+   *
    */
   init: function () {
     this._super()
@@ -88,7 +90,7 @@ draw2d.layout.connection.RubberbandRouter = draw2d.layout.connection.ConnectionR
 
 
   /**
-   * @method
+   * 
    * Callback method if the router has been assigned to a connection.
    *
    * @param {draw2d.Connection} connection The assigned connection
@@ -101,7 +103,7 @@ draw2d.layout.connection.RubberbandRouter = draw2d.layout.connection.ConnectionR
   },
 
   /**
-   * @method
+   * 
    * Invalidates the given Connection
    */
   invalidate: function () {

@@ -1,9 +1,11 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.analog.ResistorBridge
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let figure =  new draw2d.shape.analog.ResistorBridge({x:10, y:10});
  *
@@ -12,10 +14,10 @@
  *
  * @extends draw2d.SVGFigure
  */
-import draw2d from '../../packages'
-
-draw2d.shape.analog.ResistorBridge = draw2d.SVGFigure.extend({
-
+draw2d.shape.analog.ResistorBridge = draw2d.SVGFigure.extend(
+  /** @lends draw2d.shape.analog.ResistorBridge.prototype */
+  {
+  
   NAME: "draw2d.shape.analog.ResistorBridge",
 
   // custom locator for the special design of the ResistorBridge Input area
@@ -45,7 +47,6 @@ draw2d.shape.analog.ResistorBridge = draw2d.SVGFigure.extend({
 
 
   /**
-   * @constructor
    * Create a new instance
    * @param {Object} [attr] the configuration of the shape
    */

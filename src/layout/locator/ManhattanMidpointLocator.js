@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.locator.ManhattanMidpointLocator
  *
@@ -5,9 +8,8 @@
  * connection. The midpoint is always in the center of an edge.
  *
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *     //create and add two Node which contains Ports (In and OUT)
  *     let start = new draw2d.shape.node.Start({x:50,y:50});
  *     let end   = new draw2d.shape.node.End({x:230,y:100});
@@ -36,13 +38,13 @@
  * @author Andreas Herz
  * @extend draw2d.layout.locator.ConnectionLocator
  */
-import draw2d from '../../packages'
+draw2d.layout.locator.ManhattanMidpointLocator = draw2d.layout.locator.ConnectionLocator.extend(
+  /** @lends draw2d.layout.locator.ManhattanMidpointLocator.prototype */
+  {
 
-draw2d.layout.locator.ManhattanMidpointLocator = draw2d.layout.locator.ConnectionLocator.extend({
   NAME: "draw2d.layout.locator.ManhattanMidpointLocator",
 
   /**
-   * @constructor
    * Constructs a ManhattanMidpointLocator with associated Connection c.
    *
    */
@@ -52,7 +54,7 @@ draw2d.layout.locator.ManhattanMidpointLocator = draw2d.layout.locator.Connectio
 
 
   /**
-   * @method
+   *
    * Relocates the given Figure always in the center of an edge.
    *
    * @param {Number} index child index of the target

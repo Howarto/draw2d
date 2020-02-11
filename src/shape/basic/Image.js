@@ -1,3 +1,7 @@
+import draw2d from '../../packages'
+import extend from '../../util/extend'
+
+
 /**
  * @class draw2d.shape.basic.Image
  * Simple Image shape.
@@ -6,15 +10,14 @@
  * @author Andreas Herz
  * @extends draw2d.shape.node.Node
  */
-import draw2d from '../../packages'
-import extend from '../../util/extend'
 
+draw2d.shape.basic.Image = draw2d.shape.node.Node.extend(
+  /** @lends draw2d.shape.basic.Image.prototype */
+  {
 
-draw2d.shape.basic.Image = draw2d.shape.node.Node.extend({
   NAME: "draw2d.shape.basic.Image",
 
   /**
-   * @constructor
    * Creates a new figure element which are not assigned to any canvas.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -22,7 +25,7 @@ draw2d.shape.basic.Image = draw2d.shape.node.Node.extend({
   init: function (attr, setter, getter) {
     this._super(attr,
       extend({
-        /** @attr {String} path the image path (absolute or relative) of the shape */
+        // @attr {String} path the image path (absolute or relative) of the shape */
         path: this.setPath
       }, setter),
       extend({
@@ -32,7 +35,7 @@ draw2d.shape.basic.Image = draw2d.shape.node.Node.extend({
 
 
   /**
-   * @method
+   * 
    * Set the image path attribute of the Image shape and repaint them.
    * The path can be relative or absolute
    *
@@ -51,7 +54,7 @@ draw2d.shape.basic.Image = draw2d.shape.node.Node.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the image path attribute of the shape.
    *
    * @returns {String}

@@ -1,16 +1,19 @@
-/**
- * @class draw2d.geo.Point Util class for geometrie handling.
- */
 import draw2d from '../packages'
 
 
-draw2d.geo.Point = Class.extend({
+/**
+ * @class draw2d.geo.Point Util class for geometrie handling.
+ */
 
+draw2d.geo.Point = Class.extend(
+  /** @lends draw2d.geo.Point.prototype */
+  {
+  
   NAME: "draw2d.geo.Point",
 
   /**
-   * @constructor
    * Creates a new Point object with the hands over coordinates.
+   *
    * @param {Number|draw2d.geo.Point} x
    * @param {Number} y
    */
@@ -39,7 +42,7 @@ draw2d.geo.Point = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Set the boundary of the rectangle. If set, the rectangle is always inside
    * the boundary. A setX or setY will always be adjusted.
    *
@@ -63,7 +66,7 @@ draw2d.geo.Point = Class.extend({
 
 
   /**
-   * @method
+   * 
    * @private
    */
   adjustBoundary: function () {
@@ -77,7 +80,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Moves this Rectangle horizontally by dx and vertically by dy, then returns
    * this Rectangle for convenience.<br>
    * <br>
@@ -97,7 +100,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The X value of the point
    * @since 0.1
    * @return {Number}
@@ -107,7 +110,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The y value of the point
    *
    * @return {Number}
@@ -117,7 +120,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the new X value of the point
    *
    * @param {Number} x the new value
@@ -130,7 +133,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the new Y value of the point
    *
    * @param {Number} y the new value
@@ -143,7 +146,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the new x/y coordinates of this point
    *
    * @param {Number|draw2d.geo.Point} x
@@ -164,7 +167,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Calculates the relative position of the specified Point to this Point.
    *
    * @param {draw2d.geo.Point} p The reference Point
@@ -184,7 +187,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Compares two points and return [true] if x and y are equals.
    *
    * @param {draw2d.geo.Point} p the point to compare with
@@ -196,7 +199,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the distance between this point and the hands over.
    *
    * @param {draw2d.geo.Point} other the point to use
@@ -212,7 +215,7 @@ draw2d.geo.Point = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Return the th of the vector from [0,0]
    *
    * @return {Number}
@@ -223,7 +226,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return a new Point translated with the x/y values of the hands over point.
    *
    * @param {draw2d.geo.Point|Number} x the x translation or the complete point to translate
@@ -236,7 +239,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return a new Point scaled with the x/y values of the hands over point.
    *
    * @param {Number} factor the factor to scaled the new point.
@@ -250,7 +253,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return a new Point scaled with the x/y values of the hands over point.
    *
    * @param {Number} factor the factor to scaled the new point.
@@ -266,7 +269,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return an objects with all important attributes for XML or JSON serialization
    *
    * @returns {Object}
@@ -279,7 +282,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Read all attributes from the serialized properties and transfer them into the shape.
    *
    * @param {Object} memento
@@ -291,7 +294,7 @@ draw2d.geo.Point = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * substract the given point and return the new point.
    *
    * @param that
@@ -317,7 +320,7 @@ draw2d.geo.Point = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Clone the Point and return them
    *
    * @returns

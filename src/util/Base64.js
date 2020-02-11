@@ -1,4 +1,4 @@
-import draw2d from '../packages';
+import draw2d from '../packages'
 
 
 draw2d.util.Base64 = {
@@ -93,7 +93,7 @@ draw2d.util.Base64 = {
 
 
       /**
-       * @method
+       * 
        * Base64-encode a string.
        *
        * @param {string} input A string to encode.
@@ -106,7 +106,7 @@ draw2d.util.Base64 = {
 
 
       /**
-       * @method
+       * 
        * Base64-decode a string.
        *
        * @param {String} input to decode (length not required to be a multiple of 4).

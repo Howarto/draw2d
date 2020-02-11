@@ -1,9 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.figure.GlowSelectionFeedbackPolicy
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
+ *
  *       circle =new draw2d.shape.basic.Circle();
  *       circle.installEditPolicy(new draw2d.policy.figure.GlowSelectionFeedbackPolicy());
  *       canvas.add(circle,90,50);
@@ -13,14 +16,13 @@
  * @author Andreas Herz
  * @extends draw2d.policy.figure.SelectionFeedbackPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.figure.GlowSelectionFeedbackPolicy = draw2d.policy.figure.SelectionFeedbackPolicy.extend({
-
+draw2d.policy.figure.GlowSelectionFeedbackPolicy = draw2d.policy.figure.SelectionFeedbackPolicy.extend(
+  /** @lends draw2d.policy.figure.GlowSelectionFeedbackPolicy.prototype */
+  {
+  
   NAME: "draw2d.policy.figure.GlowSelectionFeedbackPolicy",
 
   /**
-   * @constructor
    * Creates a new Router object
    */
   init: function (attr, setter, getter) {
@@ -29,7 +31,7 @@ draw2d.policy.figure.GlowSelectionFeedbackPolicy = draw2d.policy.figure.Selectio
 
 
   /**
-   * @method
+   * 
    * Called by the framework of the Policy should show a resize handle for the given shape
    *
    * @param {Boolean} isPrimarySelection
@@ -41,7 +43,7 @@ draw2d.policy.figure.GlowSelectionFeedbackPolicy = draw2d.policy.figure.Selectio
 
 
   /**
-   * @method
+   * 
    *
    * @param {draw2d.Figure} figure the unselected figure
    */

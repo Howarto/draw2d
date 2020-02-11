@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.connection.MuteableManhattanConnectionRouter
  *
@@ -8,10 +11,11 @@
  *
  * @extends  draw2d.layout.connection.ManhattanConnectionRouter
  */
-import draw2d from '../../packages'
 
+draw2d.layout.connection.MuteableManhattanConnectionRouter = draw2d.layout.connection.ManhattanConnectionRouter.extend(
+  /** @lends draw2d.layout.connection.MuteableManhattanConnectionRouter.prototype */
+  {
 
-draw2d.layout.connection.MuteableManhattanConnectionRouter = draw2d.layout.connection.ManhattanConnectionRouter.extend({
   NAME: "draw2d.layout.connection.MuteableManhattanConnectionRouter",
 
   UP: new draw2d.geo.Ray(0, -1),
@@ -20,7 +24,6 @@ draw2d.layout.connection.MuteableManhattanConnectionRouter = draw2d.layout.conne
   RIGHT: new draw2d.geo.Ray(1, 0),
 
   /**
-   * @constructor
    * Creates a new Router object.
    *
    */
@@ -170,7 +173,7 @@ draw2d.layout.connection.MuteableManhattanConnectionRouter = draw2d.layout.conne
   },
 
   /**
-   * @method
+   *
    *
    * @param {draw2d.Connection} connection
    * @param {Number} r

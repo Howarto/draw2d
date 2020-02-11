@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.composite.Group
  *
@@ -11,13 +14,13 @@
  * @extends draw2d.shape.composite.StrongComposite
  * @since 4.8.0
  */
-import draw2d from '../../packages'
-
-draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend({
+draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend(
+  /** @lends draw2d.shape.composite.Group.prototype */
+  {
+  
   NAME: "draw2d.shape.composite.Group",
 
   /**
-   * @constructor
    * Creates a new figure element which are not assigned to any canvas.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -33,7 +36,7 @@ draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend({
 
 
   /**
-   * @method
+   * 
    * Delegate method to calculate if a figure is selectable. A composite has the right to override the
    * initial selectable flag of the figure.
    *
@@ -47,7 +50,7 @@ draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend({
   },
 
   /**
-   * @method
+   * 
    * Delegate method to calculate if a figure is draggable. A composite has the right to override the
    * initial draggable flag of the figure.
    * <br>
@@ -63,7 +66,7 @@ draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the position of the object.
    *
    * @param {Number/draw2d.geo.Point} x The new x coordinate of the figure
@@ -93,7 +96,7 @@ draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend({
   },
 
   /**
-   * @method
+   * 
    * Assign a figure to the given group.
    * The bounding box of the group is recalculated and the union of the current bounding box with the
    * figure bounding box.
@@ -123,7 +126,7 @@ draw2d.shape.composite.Group = draw2d.shape.composite.StrongComposite.extend({
   },
 
   /**
-   * @method
+   * 
    * Remove the given figure from the group assignment
    *
    * @param {draw2d.Figure} figure the figure to remove

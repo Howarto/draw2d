@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.SnapToGridEditPolicy
  *
@@ -9,15 +12,14 @@
  *
  * @extends draw2d.policy.canvas.ShowGridEditPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.SnapToGridEditPolicy = draw2d.policy.canvas.ShowGridEditPolicy.extend({
+draw2d.policy.canvas.SnapToGridEditPolicy = draw2d.policy.canvas.ShowGridEditPolicy.extend(
+  /** @lends draw2d.policy.canvas.SnapToGridEditPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.canvas.SnapToGridEditPolicy",
 
 
   /**
-   * @constructor
    * Creates a new constraint policy for snap to grid
    *
    * @param {Number} grid the grid width of the canvas
@@ -28,7 +30,7 @@ draw2d.policy.canvas.SnapToGridEditPolicy = draw2d.policy.canvas.ShowGridEditPol
 
 
   /**
-   * @method
+   *
    * Applies a snapping correction to the given result.
    *
    * @param {draw2d.Canvas} canvas the related canvas

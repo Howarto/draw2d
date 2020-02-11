@@ -1,3 +1,6 @@
+import draw2d from '../packages'
+
+
 /**
  * @class draw2d.command.CommandType
  *
@@ -11,15 +14,14 @@
  *
  * @author Andreas Herz
  */
-import draw2d from '../packages'
 
-
-draw2d.command.CommandType = Class.extend({
+draw2d.command.CommandType = Class.extend(
+  /** @lends draw2d.command.CommandType.prototype */
+  {
 
   NAME: "draw2d.command.CommandType",
 
   /**
-   * @constructor
    * Create a new edit policy object
    *
    * @param {String} policy
@@ -29,7 +31,7 @@ draw2d.command.CommandType = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the String representation of the policy
    *
    * @return {String}

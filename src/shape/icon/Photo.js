@@ -1,9 +1,11 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.icon.Photo
 
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let icon =  new draw2d.shape.icon.Photo();
  *
@@ -13,14 +15,14 @@
  * @author Andreas Herz
  * @extends draw2d.shape.icon.Icon
  */
-import draw2d from '../../packages'
-
-draw2d.shape.icon.Photo = draw2d.shape.icon.Icon.extend({
+draw2d.shape.icon.Photo = draw2d.shape.icon.Icon.extend(
+  /** @lends draw2d.shape.icon.Photo.prototype */
+  {
+  
   NAME: "draw2d.shape.icon.Photo",
 
   /**
    *
-   * @constructor
    * Creates a new icon element which are not assigned to any canvas.
    *
    * @param {Object} attr the configuration of the shape

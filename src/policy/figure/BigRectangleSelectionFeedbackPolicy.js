@@ -1,9 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.figure.BigRectangleSelectionFeedbackPolicy
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
+ *
  *       circle =new draw2d.shape.basic.Circle();
  *       circle.installEditPolicy(new draw2d.policy.figure.BigRectangleSelectionFeedbackPolicy());
  *       canvas.add(circle,90,50);
@@ -13,14 +16,13 @@
  * @author Andreas Herz
  * @extends draw2d.policy.figure.SelectionFeedbackPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.figure.BigRectangleSelectionFeedbackPolicy = draw2d.policy.figure.RectangleSelectionFeedbackPolicy.extend({
+draw2d.policy.figure.BigRectangleSelectionFeedbackPolicy = draw2d.policy.figure.RectangleSelectionFeedbackPolicy.extend(
+  /** @lends draw2d.policy.figure.BigRectangleSelectionFeedbackPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.figure.BigRectangleSelectionFeedbackPolicy",
 
   /**
-   * @constructor
    * Creates a new Router object
    */
   init: function (attr, setter, getter) {

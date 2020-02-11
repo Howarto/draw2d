@@ -1,10 +1,14 @@
+import draw2d from '../../packages'
+import jsonUtil from '../../util/JSONUtil'
+import extend from '../../util/extend'
+
+
 /**
  * @class draw2d.shape.basic.Label
  * Implements a simple text label.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let shape =  new draw2d.shape.basic.Label({text:"This is a simple label", x:40, y:10});
  *
@@ -14,12 +18,10 @@
  *
  * @extends draw2d.SetFigure
  */
-import draw2d from '../../packages'
-import jsonUtil from '../../util/JSONUtil'
-import extend from '../../util/extend'
-
-draw2d.shape.basic.Label = draw2d.SetFigure.extend({
-
+draw2d.shape.basic.Label = draw2d.SetFigure.extend(
+  /** @lends draw2d.shape.basic.Label.prototype */
+  {
+  
   NAME: "draw2d.shape.basic.Label",
 
   FONT_FALLBACK: {
@@ -40,7 +42,6 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @constructor
    * Creates a new text element.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -74,23 +75,23 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
     this._super(
       extend({stroke: 1, width: 1, height: 1, resizeable: false}, attr),
       extend({
-        /** @attr {String} text the text to show */
+        // @attr {String} text the text to show */
         text: this.setText,
-        /** @attr {String} set the editor to use see {@link draw2d.ui.LabelEditor} */
+        // @attr {String} set the editor to use see {@link draw2d.ui.LabelEditor} */
         editor: this.installEditor,
-        /** @attr {Number} outlineStroke the line width of the text to draw. Fill color and outline of the text can be different. */
+        // @attr {Number} outlineStroke the line width of the text to draw. Fill color and outline of the text can be different. */
         outlineStroke: this.setOutlineStroke,
-        /** @attr {String|draw2d.util.Color} outlineColor the outline color of the text */
+        // @attr {String|draw2d.util.Color} outlineColor the outline color of the text */
         outlineColor: this.setOutlineColor,
-        /** @attr {String} fontFamily the font to use*/
+        // @attr {String} fontFamily the font to use*/
         fontFamily: this.setFontFamily,
-        /** @attr {Number} fontSize the font size to use */
+        // @attr {Number} fontSize the font size to use */
         fontSize: this.setFontSize,
-        /** @attr {String|draw2d.util.Color} fontColor the font color */
+        // @attr {String|draw2d.util.Color} fontColor the font color */
         fontColor: this.setFontColor,
-        /** @attr {Number} padding the padding in pixel around the text */
+        // @attr {Number} padding the padding in pixel around the text */
         padding: this.setPadding,
-        /** @attr {Boolean} bold indicator if bold text should be used*/
+        // @attr {Boolean} bold indicator if bold text should be used*/
         bold: this.setBold
       }, setter),
       extend({
@@ -114,7 +115,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Creates the shape object for a text node.
    *
    * @template
@@ -124,7 +125,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the canvas element of this figures.
    *
    * @param {draw2d.Canvas} canvas the new parent of the figure or null
@@ -136,7 +137,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Trigger the repaint of the element and transport all style properties to the visual representation.<br>
    * Called by the framework.
    *
@@ -207,7 +208,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * Set the new font size in [pt].
    *
    * @param {Number} size The new font size in <code>pt</code>
@@ -235,7 +236,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Return the current used font size in px.
    *
    * @returns {Number}
@@ -247,7 +248,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * Set the label to <b>bold</b> or <b>normal</b> font weight.
    *
    * @param {Boolean} bold The bold flag for the label
@@ -274,7 +275,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Return the "bold" attribute of the label
    *
    * @since 5.0.0
@@ -285,7 +286,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the outline color of the font.
    *
    * @param {draw2d.util.Color/String} color The new color of the line.
@@ -300,7 +301,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * The outlien color of the text
    *
    * @returns {draw2d.util.Color}
@@ -311,7 +312,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the stroke of the text to use.
    *
    * @param {Number} w The new line width of the figure
@@ -326,7 +327,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * The used outline line width.
    *
    * @type {Number}
@@ -337,7 +338,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the color of the font.
    *
    * @param {draw2d.util.Color|String} color The new color of the line.
@@ -351,7 +352,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * The current used font color
    *
    * @returns {draw2d.util.Color}
@@ -361,7 +362,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the padding of the element
    *
    *      // Alternatively you can use the attr method:
@@ -394,7 +395,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * Get the padding of the element.
    *
    * @since 4.0.1
@@ -404,7 +405,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the font family to use. If you use the shown font names the typical fallback
    * font are installed as well.
    *
@@ -453,7 +454,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * Returns the used font family of the label.
    *
    * @returns {String}
@@ -464,7 +465,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * A Label did have "autosize". Do nothing at all.
    *
    **/
@@ -477,7 +478,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * clear the internal cache for width/height precalculation
    * @private
    */
@@ -493,7 +494,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * This value is relevant for the interactive resize of the figure.
    *
    * @return {Number} Returns the min. width of this object.
@@ -514,7 +515,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * This value is relevant for the interactive resize of the figure.
    *
    * @return {Number} Returns the min. width of this object.
@@ -535,7 +536,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Return the calculate width of the set. This calculates the bounding box of all elements.
    *
    * @return {Number} the calculated width of the label
@@ -559,7 +560,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Return the calculated height of the set. This calculates the bounding box of all elements.
    *
    * @return {Number} the calculated height of the label
@@ -577,7 +578,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set an editor for the label. This can be a dialog or inplace editor for the
    * Text.<br>
    * The editor will be activated if you doubleClick on the label.
@@ -594,7 +595,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Called when a user dbl clicks on the element
    *
    */
@@ -606,7 +607,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * Returns the current text of the label.
    *
    * @returns the current display text of the label
@@ -617,7 +618,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Set the text for the label. Use \n for multiline text.
    *
    * @param {String} text The new text for the label.
@@ -687,7 +688,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
 
 
   /**
-   * @method
+   *
    * Return an objects with all important attributes for XML or JSON serialization
    *
    * @returns {Object}
@@ -709,7 +710,7 @@ draw2d.shape.basic.Label = draw2d.SetFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Read all attributes from the serialized properties and transfer them into the shape.
    *
    * @param {Object} memento

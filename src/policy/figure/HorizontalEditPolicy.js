@@ -1,13 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.figure.HorizontalEditPolicy
  *
  * An EditPolicy for use with Figures. With this edit policy you can move the shape only in a horizontal manner.
  *
- * See the example:
  *
- *     @example preview small frame
- *
- *
+ * @example
  *       // add some demo figure to the canvas
  *       var circle =new draw2d.shape.basic.Circle({diameter:50, x:10, y:30});
  *       canvas.add(circle);
@@ -22,14 +22,13 @@
  *
  * @extends draw2d.policy.figure.DragDropEditPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.figure.HorizontalEditPolicy = draw2d.policy.figure.DragDropEditPolicy.extend({
+draw2d.policy.figure.HorizontalEditPolicy = draw2d.policy.figure.DragDropEditPolicy.extend(
+  /** @lends draw2d.policy.figure.HorizontalEditPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.figure.HorizontalEditPolicy",
 
   /**
-   * @constructor
    * Creates a new constraint object
    *
    */
@@ -39,7 +38,7 @@ draw2d.policy.figure.HorizontalEditPolicy = draw2d.policy.figure.DragDropEditPol
 
 
   /**
-   * @method
+   * 
    * It is only possible to drag&drop the element in a horizontal line
    *
    * @param figure

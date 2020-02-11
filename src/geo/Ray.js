@@ -9,17 +9,18 @@
  * @extends draw2d.geo.Point
  * @author Andreas Herz
  */
-import draw2d from '../packages';
+import draw2d from '../packages'
 
 
-draw2d.geo.Ray = draw2d.geo.Point.extend({
-
-    NAME : "draw2d.geo.Ray",
+draw2d.geo.Ray = draw2d.geo.Point.extend(
+    /** @lends draw2d.geo.Ray.prototype */
+    {
+    
+    NAME: "draw2d.geo.Ray",
     
     /**
-     * @constructor 
-     * Creates a ray object. 
-     * 
+     * Creates a ray object.
+     *
      * @param {Number} x
      * @param {Number} y
      */

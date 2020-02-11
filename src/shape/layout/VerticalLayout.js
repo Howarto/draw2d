@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.layout.VerticalLayout
  * The VerticalLayout class arranges the layout elements in a vertical sequence,
@@ -9,7 +12,7 @@
  * See the example below with and without gap and border settings
  *
  *
- *     @example preview small frame
+ * @example
  *
  *     // first container without any gap and a border of the parent
  *     // container
@@ -43,14 +46,13 @@
  * @author Andreas Herz
  * @extends draw2d.shape.layout.Layout
  */
-import draw2d from '../../packages'
-
-draw2d.shape.layout.VerticalLayout = draw2d.shape.layout.Layout.extend({
+draw2d.shape.layout.VerticalLayout = draw2d.shape.layout.Layout.extend(
+  /** @lends draw2d.shape.layout.VerticalLayout.prototype */
+  {
 
   NAME: "draw2d.shape.layout.VerticalLayout",
 
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape
@@ -90,7 +92,7 @@ draw2d.shape.layout.VerticalLayout = draw2d.shape.layout.Layout.extend({
     this._super(
       extend({width: 10, height: 10}, attr),
       extend({
-        /** @attr {Number} gap the gap between the children shapes */
+        // @attr {Number} gap the gap between the children shapes */
         gap: this.setGap
       }, setter),
       extend({
@@ -113,7 +115,7 @@ draw2d.shape.layout.VerticalLayout = draw2d.shape.layout.Layout.extend({
 
 
   /**
-   * @method
+   * 
    * Set the gap width between child components within this layout.
    * This will only affect the space between components, not the space around all the components in the layout.
    *

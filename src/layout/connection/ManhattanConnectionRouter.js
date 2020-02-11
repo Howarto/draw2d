@@ -1,11 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.connection.ManhattanConnectionRouter
  * Provides a {@link draw2d.Connection} with an orthogonal route between the Connection's source
  * and target anchors.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     // Override the default connection type. This is used during drag&drop operations of ports.
  *     //
@@ -44,10 +46,11 @@
  *
  * @extends  draw2d.layout.connection.ConnectionRouter
  */
-import draw2d from '../../packages'
 
+draw2d.layout.connection.ManhattanConnectionRouter = draw2d.layout.connection.ConnectionRouter.extend(
+  /** @lends draw2d.layout.connection.ManhattanConnectionRouter.prototype */
+  {
 
-draw2d.layout.connection.ManhattanConnectionRouter = draw2d.layout.connection.ConnectionRouter.extend({
   NAME: "draw2d.layout.connection.ManhattanConnectionRouter",
 
   MINDIST: 20,
@@ -56,7 +59,6 @@ draw2d.layout.connection.ManhattanConnectionRouter = draw2d.layout.connection.Co
   TOGGLE_DIST: 20,
 
   /**
-   * @constructor
    * Creates a new Router object.
    *
    */
@@ -66,7 +68,7 @@ draw2d.layout.connection.ManhattanConnectionRouter = draw2d.layout.connection.Co
 
 
   /**
-   * @method
+   *
    * Callback method if the router has been assigned to a connection.
    *
    * @param {draw2d.Connection} connection The assigned connection
@@ -93,7 +95,7 @@ draw2d.layout.connection.ManhattanConnectionRouter = draw2d.layout.connection.Co
   },
 
   /**
-   * @method
+   *
    * Internal routing algorithm.
    *
    * @private

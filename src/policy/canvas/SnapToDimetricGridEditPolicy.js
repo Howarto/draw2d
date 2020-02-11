@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.SnapToDimetricGridEditPolicy
  *
@@ -9,15 +12,14 @@
  *
  * @extends draw2d.policy.canvas.ShowDimetricGridEditPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.SnapToDimetricGridEditPolicy = draw2d.policy.canvas.ShowDimetricGridEditPolicy.extend({
+draw2d.policy.canvas.SnapToDimetricGridEditPolicy = draw2d.policy.canvas.ShowDimetricGridEditPolicy.extend(
+  /** @lends draw2d.policy.canvas.SnapToDimetricGridEditPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.canvas.SnapToDimetricGridEditPolicy",
 
 
   /**
-   * @constructor
    * Creates a new constraint policy for snap to grid
    *
    * @param {Number} grid the grid width of the canvas
@@ -28,7 +30,7 @@ draw2d.policy.canvas.SnapToDimetricGridEditPolicy = draw2d.policy.canvas.ShowDim
 
 
   /**
-   * @method
+   *
    * Applies a snapping correction to the given result.
    *
    * @param {draw2d.Canvas} canvas the related canvas

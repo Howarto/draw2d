@@ -1,12 +1,14 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.locator.CenterLocator
  *
  * A CenterLocator is used to place figures in the center of a parent shape.
  *
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *
  *     // create a basic figure and add a Label/child via API call
@@ -22,13 +24,13 @@
  * @author Andreas Herz
  * @extend draw2d.layout.locator.Locator
  */
-import draw2d from '../../packages'
+draw2d.layout.locator.CenterLocator = draw2d.layout.locator.Locator.extend(
+  /** @lends draw2d.layout.locator.CenterLocator.prototype */
+  {
 
-draw2d.layout.locator.CenterLocator = draw2d.layout.locator.Locator.extend({
   NAME: "draw2d.layout.locator.CenterLocator",
 
   /**
-   * @constructor
    * Constructs a locator with associated parent.
    *
    */
@@ -38,7 +40,7 @@ draw2d.layout.locator.CenterLocator = draw2d.layout.locator.Locator.extend({
 
 
   /**
-   * @method
+   * 
    * Relocates the given Figure.
    *
    * @param {Number} index child index of the target

@@ -1,9 +1,11 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.icon.Question2
 
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let icon =  new draw2d.shape.icon.Question2();
  *     icon.setDimension(150,100);
@@ -13,14 +15,14 @@
  * @author Andreas Herz
  * @extends draw2d.shape.icon.Icon
  */
-import draw2d from '../../packages'
+draw2d.shape.icon.Question2 = draw2d.shape.icon.Icon.extend(
+  /** @lends draw2d.shape.icon.Question2.prototype */
+  {
 
-draw2d.shape.icon.Question2 = draw2d.shape.icon.Icon.extend({
   NAME: "draw2d.shape.icon.Question2",
 
   /**
    *
-   * @constructor
    * Creates a new figure element which are not assigned to any canvas.
    *
    * @param {Object} attr the configuration of the shape

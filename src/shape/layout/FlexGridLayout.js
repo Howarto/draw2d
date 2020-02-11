@@ -38,7 +38,7 @@
  *
  * Example Implementation of a shape:
  *
- *     @example preview small frame
+ * @example
  *     let PredefinedProcess = draw2d.shape.layout.FlexGridLayout.extend({
  *
  *
@@ -84,13 +84,14 @@
 import draw2d from '../../packages'
 import extend from '../../util/extend'
 
-draw2d.shape.layout.FlexGridLayout = draw2d.shape.layout.Layout.extend({
-
+draw2d.shape.layout.FlexGridLayout = draw2d.shape.layout.Layout.extend(
+  /** @lends draw2d.shape.layout.FlexGridLayout.prototype */
+  {
+  
   NAME: "draw2d.shape.layout.FlexGridLayout",
 
 
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape

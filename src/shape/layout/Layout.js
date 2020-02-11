@@ -1,3 +1,7 @@
+import draw2d from '../../packages'
+import extend from '../../util/extend'
+
+
 /**
  * @class draw2d.shape.layout.Layout
  *
@@ -8,15 +12,13 @@
  * @author Andreas Herz
  * @extends draw2d.shape.basic.Rectangle
  */
-import draw2d from '../../packages'
-import extend from '../../util/extend'
-
-draw2d.shape.layout.Layout = draw2d.shape.basic.Rectangle.extend({
+draw2d.shape.layout.Layout = draw2d.shape.basic.Rectangle.extend(
+  /** @lends draw2d.shape.layout.Layout.prototype */
+  {
 
   NAME: "draw2d.shape.layout.Layout",
 
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape
@@ -27,7 +29,7 @@ draw2d.shape.layout.Layout = draw2d.shape.basic.Rectangle.extend({
 
     this._super(extend({bgColor: null, radius: 0, stroke: 0}, attr),
       extend({
-        /** @attr {Number} padding the padding in pixel around the text */
+        // @attr {Number} padding the padding in pixel around the text */
         padding: this.setPadding
       }, setter),
       extend({
@@ -83,7 +85,7 @@ draw2d.shape.layout.Layout = draw2d.shape.basic.Rectangle.extend({
 
 
   /**
-   * @method
+   * 
    * Set the padding of the element
    *
    *      // Alternatively you can use the attr method:
@@ -119,7 +121,7 @@ draw2d.shape.layout.Layout = draw2d.shape.basic.Rectangle.extend({
 
 
   /**
-   * @method
+   * 
    * Get the padding of the element.
    *
    * @since 4.3.3
@@ -149,7 +151,7 @@ draw2d.shape.layout.Layout = draw2d.shape.basic.Rectangle.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns the Command to perform the specified Request or null.
    *
    * @param {draw2d.command.CommandType} request describes the Command being requested

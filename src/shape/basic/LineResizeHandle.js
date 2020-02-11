@@ -1,3 +1,7 @@
+import draw2d from '../../packages'
+import extend from '../../util/extend'
+
+
 /**
  * @class draw2d.shape.basic.LineResizeHandle
  * Base class for selection handle for connections and normal lines.
@@ -7,12 +11,15 @@
  * @author Andreas Herz
  * @extends draw2d.shape.basic.Circle
  */
-import draw2d from '../../packages'
-import extend from '../../util/extend'
+draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend(
+  /** @lends draw2d.shape.basic.LineResizeHandle.prototype */
+  {
 
-draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
   NAME: "draw2d.shape.basic.LineResizeHandle",
 
+  /**
+   *
+   */
   init: function (attr, setter, getter) {
 
     this.zoomCallback = () => {
@@ -57,7 +64,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns the current used SVG as string
    *
    * @returns {String}
@@ -73,7 +80,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
 
 
   /**
-   * @method
+   * 
    * Returns the index of the selection. In case of a PlyLine the count is dynamic.
    *
    * @returns {Number}
@@ -113,7 +120,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
 
 
   /**
-   * @method
+   * 
    * Return the port below the ResizeHandle.
    *
    * @template
@@ -125,7 +132,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
 
 
   /**
-   * @method
+   * 
    * Return the port of the other side of the related connection.
    *
    * @template
@@ -191,7 +198,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
 
 
   /**
-   * @method
+   * 
    * Called from the framework during a drag&drop operation
    *
    * @param {Number} dx the x difference between the start of the drag drop operation and now
@@ -231,7 +238,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
   },
 
   /**
-   * @method Called after a drag and drop action.<br>
+   *  Called after a drag and drop action.<br>
    *         Sub classes can override this method to implement additional stuff. Don't forget to call the super implementation via <code>this._super();</code>
    *
    * @param {Number} x the x-coordinate of the mouse event
@@ -290,7 +297,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
 
 
   /**
-   * @method
+   * 
    * Controls the position of the ResizeHandle
    * Called by the framework.
    *
@@ -302,7 +309,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
 
 
   /**
-   * @method
+   * 
    * The LineResizeHandle didn't support the SnapToHelper feature if the
    * corresponding object is an Connection. A Connection is always bounded to
    * Port. In this case it makes no sense to use a Grid or Geometry for snapping.
@@ -318,7 +325,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
   },
 
   /**
-   * @method
+   * 
    * Show the ResizeHandle and add it to the canvas.<br>
    * Additional bring it in to the front of other figures.
    *
@@ -346,7 +353,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
   },
 
   /**
-   * @method
+   * 
    * Hide the resize handle and remove it from the canvas.
    *
    **/
@@ -376,7 +383,7 @@ draw2d.shape.basic.LineResizeHandle = draw2d.shape.basic.Circle.extend({
   },
 
   /**
-   * @method
+   * 
    * Override this method and redirect them to the canvas. A ResizeHandle didn't support
    * Keyboard interaction at the moment.
    *

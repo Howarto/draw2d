@@ -1,10 +1,12 @@
+import draw2d from '../../packages'
+import extend from '../../util/extend'
+
 /**
- * @class draw2d.shape.basic.Rectangle
+ * @class
  * A Rectangle Figure.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let rect1 =  new draw2d.shape.basic.Rectangle({
  *     	x:10,
@@ -27,29 +29,26 @@
  *     canvas.setCurrentSelection(rect2);
  *
  * @author Andreas Herz
+ * @param {Object} [attr] the configuration of the shape
+ * @param {Object} [setter] add or replace setter methods
+ * @param {Object} [getter] add or replace getter methods
  * @extends draw2d.VectorFigure
  */
-import draw2d from '../../packages'
-import extend from '../../util/extend'
+draw2d.shape.basic.Rectangle = draw2d.VectorFigure.extend(
+  /** @lends draw2d.shape.basic.Rectangle.prototype */
+  {
 
-draw2d.shape.basic.Rectangle = draw2d.VectorFigure.extend({
   NAME: "draw2d.shape.basic.Rectangle",
 
-  /**
-   * @constructor
-   * Creates a new figure element which are not assigned to any canvas.
-   *
-   * @param {Object} [attr] the configuration of the shape
-   */
   init: function (attr, setter, getter) {
     this.dasharray = null
 
     this._super(
       extend({bgColor: "#a0a0a0", color: "#1B1B1B"}, attr),
       extend({}, {
-        /** @attr {String} dash The dot/dash pattern for the line style. Valid values: ["", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."]*/
+        // @attr {String} dash The dot/dash pattern for the line style. Valid values: ["", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."]*/
         dash: this.setDashArray,
-        /** @attr {String} dasharray The dot/dash pattern for the line style. Valid values: ["", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."]*/
+        // @attr {String} dasharray The dot/dash pattern for the line style. Valid values: ["", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."]*/
         dasharray: this.setDashArray
       }, setter),
       extend({}, {
@@ -107,7 +106,7 @@ draw2d.shape.basic.Rectangle = draw2d.VectorFigure.extend({
 
 
   /**
-   * @method
+   *
    * Set the line style for dot/dash styling. Possible values are
    * ["", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."]
    *
@@ -127,7 +126,7 @@ draw2d.shape.basic.Rectangle = draw2d.VectorFigure.extend({
   },
 
   /**
-   * @method
+   *
    * Get the line style for this object.
    *
    *      // Alternatively you can use the attr method:

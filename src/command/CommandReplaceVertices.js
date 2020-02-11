@@ -1,3 +1,6 @@
+import draw2d from '../packages'
+
+
 /**
  * @class draw2d.command.CommandReplaceVertices
  *
@@ -8,13 +11,13 @@
  *
  * @extends draw2d.command.Command
  */
-import draw2d from '../packages'
-
-draw2d.command.CommandReplaceVertices = draw2d.command.Command.extend({
+draw2d.command.CommandReplaceVertices = draw2d.command.Command.extend(
+  /** @lends draw2d.command.CommandReplaceVertices.prototype */
+  {
+  
   NAME: "draw2d.command.CommandReplaceVertices",
 
   /**
-   * @constructor
    * Create a new Command objects which add a segment to a PolyLine / Polygon.
    *
    * @param {draw2d.shape.basic.PolyLine} line the related line
@@ -31,7 +34,7 @@ draw2d.command.CommandReplaceVertices = draw2d.command.Command.extend({
 
 
   /**
-   * @method
+   * 
    * Returns [true] if the command can be execute and the execution of the
    * command modify the model. A CommandMove with [startX,startX] == [endX,endY] should
    * return false. <br>
@@ -45,7 +48,7 @@ draw2d.command.CommandReplaceVertices = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    * Execute the command the first time
    *
    **/
@@ -54,7 +57,7 @@ draw2d.command.CommandReplaceVertices = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * Undo the move command
    *
@@ -64,7 +67,7 @@ draw2d.command.CommandReplaceVertices = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * Redo the move command after the user has undo this command
    *

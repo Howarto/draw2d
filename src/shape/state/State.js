@@ -1,9 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.state.State
  *
  * a state shape for a state diagram
  *
- *     @example preview small frame
+ * @example
+ *
  *     // create and add two nodes which contains Ports (In and OUT)
  *     //
  *     let start = new draw2d.shape.state.Start();
@@ -26,9 +30,9 @@
  *
  * @extends draw2d.shape.layout.VerticalLayout
  */
-import draw2d from '../../packages'
-
-draw2d.shape.state.State = draw2d.shape.layout.VerticalLayout.extend({
+draw2d.shape.state.State = draw2d.shape.layout.VerticalLayout.extend(
+  /** @lends draw2d.shape.state.State.prototype */
+  {
 
   NAME: "draw2d.shape.state.State",
 
@@ -76,7 +80,7 @@ draw2d.shape.state.State = draw2d.shape.layout.VerticalLayout.extend({
   },
 
   /**
-   * @method
+   *
    * Set the text to show if the state shape
    *
    * @param {String} text
@@ -90,7 +94,7 @@ draw2d.shape.state.State = draw2d.shape.layout.VerticalLayout.extend({
 
 
   /**
-   * @method
+   *
    * Return the label of the shape
    *
    */
@@ -100,7 +104,7 @@ draw2d.shape.state.State = draw2d.shape.layout.VerticalLayout.extend({
 
 
   /**
-   * @method
+   *
    * helper method to create some labels
    *
    * @param {String} txt the label to display

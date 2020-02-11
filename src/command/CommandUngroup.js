@@ -1,17 +1,20 @@
+import draw2d from '../packages'
+
+
 /**
  * @class draw2d.command.CommandUngroup
  * Command to ungroup a given group figures
  *
  * @extends draw2d.command.Command
  */
-import draw2d from '../packages'
 
+draw2d.command.CommandUngroup = draw2d.command.Command.extend(
+  /** @lends draw2d.command.CommandUngroup.prototype */
+  {
 
-draw2d.command.CommandUngroup = draw2d.command.Command.extend({
   NAME: "draw2d.command.CommandUngroup",
 
   /**
-   * @constructor
    * Create a group command for the given figure.
    *
    * @param {draw2d.Canvas} canvas the responsible canvas
@@ -32,7 +35,7 @@ draw2d.command.CommandUngroup = draw2d.command.Command.extend({
 
 
   /**
-   * @method
+   *
    * Returns [true] if the command can be execute and the execution of the
    * command modifies the model. e.g.: a CommandMove with [startX,startX] == [endX,endY] should
    * return false. The execution of this Command doesn't modify the model.
@@ -45,7 +48,7 @@ draw2d.command.CommandUngroup = draw2d.command.Command.extend({
 
 
   /**
-   * @method
+   *
    * Execute the command the first time
    *
    **/
@@ -54,7 +57,7 @@ draw2d.command.CommandUngroup = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   *
    * Undo the command
    *
    **/
@@ -68,7 +71,7 @@ draw2d.command.CommandUngroup = draw2d.command.Command.extend({
   },
 
   /**
-   * @method
+   *
    * Redo the command after the user has undo this command
    *
    **/

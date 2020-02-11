@@ -1,11 +1,13 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.ShowDotEditPolicy
  *
  * Paint a dotted pattern in the background of the canvas.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     canvas.installEditPolicy(new draw2d.policy.canvas.ShowDotEditPolicy());
  *     var shape =  new draw2d.shape.basic.Text({text:"This is a simple text in a canvas with dotted background."});
@@ -18,10 +20,10 @@
  * @extends draw2d.policy.canvas.DecorationPolicy
  * @since 4.0.1
  */
-import draw2d from '../../packages'
 
-
-draw2d.policy.canvas.ShowDotEditPolicy = draw2d.policy.canvas.DecorationPolicy.extend({
+draw2d.policy.canvas.ShowDotEditPolicy = draw2d.policy.canvas.DecorationPolicy.extend(
+  /** @lends draw2d.policy.canvas.ShowDotEditPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.canvas.ShowDotEditPolicy",
 
@@ -30,7 +32,6 @@ draw2d.policy.canvas.ShowDotEditPolicy = draw2d.policy.canvas.DecorationPolicy.e
   DOT_DISTANCE: 20,
 
   /**
-   * @constructor
    * show a dot grid in the canvas for decoration.
    *
    * @param {Number} [dotDistance] the distance or grid width between the dots.

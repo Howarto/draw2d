@@ -1,3 +1,7 @@
+import draw2d from '../../packages'
+import extend from '../../util/extend'
+
+
 /**
  * @class draw2d.shape.layout.StackLayout
  * Using the StackLayout as their layout shape have their children placed on top of one another.
@@ -7,15 +11,13 @@
  * @author Andreas Herz
  * @extends draw2d.shape.layout.Layout
  */
-import draw2d from '../../packages'
-import extend from '../../util/extend'
-
-draw2d.shape.layout.StackLayout = draw2d.shape.layout.Layout.extend({
-
+draw2d.shape.layout.StackLayout = draw2d.shape.layout.Layout.extend(
+  /** @lends draw2d.shape.layout.StackLayout.prototype */
+  {
+  
   NAME: "draw2d.shape.layout.StackLayout",
 
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape
@@ -36,7 +38,7 @@ draw2d.shape.layout.StackLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   *
    * Set the current visible layer of the stack layout
    *
    * @param {Number} visibleLayer
@@ -50,7 +52,7 @@ draw2d.shape.layout.StackLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   *
    * Returns the current visible layer
    *
    * @returns {Number}

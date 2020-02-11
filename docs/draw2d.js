@@ -4533,7 +4533,7 @@ g = (function() {
 
 try {
 	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1, eval)("this");
+	g = g || new Function("return this")();
 } catch (e) {
 	// This works if the window reference is available
 	if (typeof window === "object") g = window;
@@ -15076,6 +15076,7 @@ _packages2.default.VectorFigure = _packages2.default.shape.node.Node.extend({
         _JSONUtil2.default.ensureDefault(attributes, "stroke-width", this.stroke);
         _JSONUtil2.default.ensureDefault(attributes, "fill", this.bgColor.rgba());
         _JSONUtil2.default.ensureDefault(attributes, "dasharray", this.dasharray);
+        _JSONUtil2.default.ensureDefault(attributes, "stroke-dasharray", this.dasharray);
 
         this._super(attributes);
 
@@ -15716,7 +15717,7 @@ _packages2.default.command.CommandAttr = _packages2.default.command.Command.exte
     this.figure.attr(this.newAttributes);
   }
 }); /**
-     * @class draw2d.command.CommandAattr
+     * @class draw2d.command.CommandAttr
      *
      *Command to change attributes of a shape with undo/redo support
      *
@@ -22663,7 +22664,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
     //
     if (routingHints.startMoved || !fromPt.equals(oldVertices.get(0))) {
       var p1 = oldVertices.get(1);
-      var p2 = oldVertices.get(2);
+      var p2 = oldVertices.get(2); // optional. Happens if the connection has just 2 points
       conn.setVertex(0, fromPt);
       switch (fromDir) {
         //          .
@@ -22674,7 +22675,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_RIGHT:
           conn.setVertex(1, max(fromPt.x + MINDIST, p1.x), fromPt.y); // p1
-          conn.setVertex(2, max(fromPt.x + MINDIST, p1.x), p2.y); // p2
+          if (p2) conn.setVertex(2, max(fromPt.x + MINDIST, p1.x), p2.y); // p2
           break;
         //   .
         //   . p1     p0
@@ -22684,7 +22685,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_LEFT:
           conn.setVertex(1, min(fromPt.x - MINDIST, p1.x), fromPt.y); // p1
-          conn.setVertex(2, min(fromPt.x - MINDIST, p1.x), p2.y); // p2
+          if (p2) conn.setVertex(2, min(fromPt.x - MINDIST, p1.x), p2.y); // p2
           break;
         //     ...+....
         //     p1 |
@@ -22694,7 +22695,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_UP:
           conn.setVertex(1, fromPt.x, min(fromPt.y - MINDIST, p1.y)); // p1
-          conn.setVertex(2, p2.x, min(fromPt.y - MINDIST, p1.y)); // p2
+          if (p2) conn.setVertex(2, p2.x, min(fromPt.y - MINDIST, p1.y)); // p2
           break;
         //        x
         //     p0 |
@@ -22704,7 +22705,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_DOWN:
           conn.setVertex(1, fromPt.x, max(fromPt.y + MINDIST, p1.y)); // p1
-          conn.setVertex(2, p2.x, max(fromPt.y + MINDIST, p1.y)); // p2
+          if (p2) conn.setVertex(2, p2.x, max(fromPt.y + MINDIST, p1.y)); // p2
           break;
       }
     }
@@ -22713,7 +22714,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
     //
     if (routingHints.endMoved || !toPt.equals(oldVertices.get(vertexCount - 1))) {
       var _p = oldVertices.get(vertexCount - 2);
-      var _p2 = oldVertices.get(vertexCount - 3);
+      var _p2 = oldVertices.get(vertexCount - 3); // optional
       conn.setVertex(vertexCount - 1, toPt); // p0
 
       switch (toDir) {
@@ -22724,7 +22725,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //               .
         case _packages2.default.geo.Rectangle.DIRECTION_RIGHT:
           conn.setVertex(vertexCount - 2, max(toPt.x + MINDIST, _p.x), toPt.y); // p1
-          conn.setVertex(vertexCount - 3, max(toPt.x + MINDIST, _p.x), _p2.y); // p2
+          if (_p2) conn.setVertex(vertexCount - 3, max(toPt.x + MINDIST, _p.x), _p2.y); // p2
           break;
 
         //    .
@@ -22736,7 +22737,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_LEFT:
           conn.setVertex(vertexCount - 2, min(toPt.x - MINDIST, _p.x), toPt.y); // p1
-          conn.setVertex(vertexCount - 3, min(toPt.x - MINDIST, _p.x), _p2.y); // p2
+          if (_p2) conn.setVertex(vertexCount - 3, min(toPt.x - MINDIST, _p.x), _p2.y); // p2
           break;
 
         //     ...+....
@@ -22747,7 +22748,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_UP:
           conn.setVertex(vertexCount - 2, toPt.x, min(toPt.y - MINDIST, _p.y)); // p1
-          conn.setVertex(vertexCount - 3, _p2.x, min(toPt.y - MINDIST, _p.y)); // p2
+          if (_p2) conn.setVertex(vertexCount - 3, _p2.x, min(toPt.y - MINDIST, _p.y)); // p2
           break;
 
         //        +
@@ -22758,7 +22759,7 @@ _packages2.default.layout.connection.InteractiveManhattanConnectionRouter = _pac
         //
         case _packages2.default.geo.Rectangle.DIRECTION_DOWN:
           conn.setVertex(vertexCount - 2, toPt.x, max(toPt.y + MINDIST, _p.y)); // p1
-          conn.setVertex(vertexCount - 3, _p2.x, max(toPt.y + MINDIST, _p.y)); // p2
+          if (_p2) conn.setVertex(vertexCount - 3, _p2.x, max(toPt.y + MINDIST, _p.y)); // p2
           break;
       }
     }
@@ -60422,8 +60423,6 @@ _packages2.default.shape.node.Start = _packages2.default.shape.basic.Rectangle.e
       height: 50
     }, attr), setter, getter);
     this.createPort("output");
-    this.installEditPolicy(new _packages2.default.policy.figure.RectangleSelectionFeedbackPolicy());
-    this.createPort("output");
   }
 
 }); /**
@@ -63534,14 +63533,7 @@ module.exports = _packages2.default.util.JSON;
 // avoid iPad bounce effect during DragDrop
 //
 document.ontouchmove = function (e) {
-    e.preventDefault();
-};
-
-Math.sign = function () {
-    if (this < 0) {
-        return -1;
-    }
-    return 1;
+  e.preventDefault();
 };
 
 /***/ }),

@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.ExtendedKeyboardPolicy
  * Extended keyboard policy to <b>delete</b> and <b>group</b> figures in the canvas.
@@ -13,21 +16,20 @@
  * @author Andreas Herz
  * @extends draw2d.policy.canvas.KeyboardPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.ExtendedKeyboardPolicy = draw2d.policy.canvas.KeyboardPolicy.extend({
+draw2d.policy.canvas.ExtendedKeyboardPolicy = draw2d.policy.canvas.KeyboardPolicy.extend(
+  /** @lends draw2d.policy.canvas.ExtendedKeyboardPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.canvas.ExtendedKeyboardPolicy",
 
   /**
-   * @constructor
    */
   init: function () {
     this._super()
   },
 
   /**
-   * @method
+   * 
    * Callback if the user press a key
    *
    * @param {draw2d.Canvas} canvas the related canvas

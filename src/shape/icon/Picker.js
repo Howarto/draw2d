@@ -1,9 +1,11 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.icon.Picker
 
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let icon =  new draw2d.shape.icon.Picker();
  *
@@ -13,14 +15,14 @@
  * @author Andreas Herz
  * @extends draw2d.shape.icon.Icon
  */
-import draw2d from '../../packages'
+draw2d.shape.icon.Picker = draw2d.shape.icon.Icon.extend(
+  /** @lends draw2d.shape.icon.Picker.prototype */
+  {
 
-draw2d.shape.icon.Picker = draw2d.shape.icon.Icon.extend({
   NAME: "draw2d.shape.icon.Picker",
 
   /**
    *
-   * @constructor
    * Creates a new icon element which are not assigned to any canvas.
    *
    * @param {Object} attr the configuration of the shape

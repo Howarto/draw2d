@@ -1,19 +1,21 @@
+
+
 /**
  * @class draw2d.InputPort
- * A InputPort is the start anchor for a {@link draw2d.Connection}.
+ * @classdesc A InputPort is the start anchor for a {@link draw2d.Connection}.
  *
  * @author Andreas Herz
  * @extend draw2d.Port
  */
-
 import draw2d from 'packages'
 
-draw2d.InputPort = draw2d.Port.extend({
+draw2d.InputPort = draw2d.Port.extend(
+  /** @lends draw2d.InputPort.prototype */
+  {
 
   NAME: "draw2d.InputPort",
 
   /**
-   * @constructor
    * Create a new InputPort element
    *
    * @param {Object} [attr] the configuration of the shape

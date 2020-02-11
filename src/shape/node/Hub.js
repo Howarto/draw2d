@@ -1,12 +1,13 @@
+
+
 /**
  * @class draw2d.shape.node.Hub
  *
  * A hub is a shape with a special kind of port handling. The hole figure is a hybrid port. You can drag&drop a Port directly on
  * the figure.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *
  *     canvas.add(new draw2d.shape.node.Start({x:50, y:50}));
@@ -14,11 +15,12 @@
  *
  * @extends draw2d.shape.basic.Rectangle
  */
-
 import draw2d from '../../packages'
 import Color from '../../util/Color'
 
-draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
+draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend(
+  /** @lends draw2d.shape.node.Hub.prototype */
+  {
 
   NAME: "draw2d.shape.node.Hub",
 
@@ -26,7 +28,6 @@ draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
   BACKGROUND_COLOR: new Color("#29AA77"),
 
   /**
-   * @constructor
    *
    * @param {Object} [attr] the configuration of the shape
    */
@@ -38,7 +39,7 @@ draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
       extend({
         // deprecated
         label: this.setLabel,
-        /** @attr {String} text the text to display in the center of the hub */
+        // @attr {String} text the text to display in the center of the hub */
         text: this.setLabel
       }, setter),
       extend({
@@ -78,7 +79,7 @@ draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the framework during drag&drop operations if the user drag a figure over this figure
    *
    * @param {draw2d.Figure} draggedFigure The figure which is currently dragging
@@ -93,7 +94,7 @@ draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
 
 
   /**
-   * @method
+   * 
    * This value is relevant for the interactive resize of the figure.
    *
    * @return {Number} Returns the min. width of this object.
@@ -132,7 +133,7 @@ draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the label for the Hub
    *
    *      // Alternatively you can use the attr method:
@@ -168,7 +169,7 @@ draw2d.shape.node.Hub = draw2d.shape.basic.Rectangle.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the strategy for the connection direction calculation.<br>
    * <br>
    *

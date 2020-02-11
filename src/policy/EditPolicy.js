@@ -1,3 +1,7 @@
+import draw2d from '../packages'
+import extend from '../util/extend'
+
+
 /**
  * @class draw2d.policy.EditPolicy
  *
@@ -15,15 +19,13 @@
  *
  * @author Andreas Herz
  */
-import draw2d from '../packages'
-import extend from '../util/extend'
-
-draw2d.policy.EditPolicy = Class.extend({
-
+draw2d.policy.EditPolicy = Class.extend(
+  /** @lends draw2d.policy.EditPolicy.prototype */
+  {
+  
   NAME: "draw2d.policy.EditPolicy",
 
   /**
-   * @constructor
    *
    */
   init: function (attr, setter, getter) {
@@ -35,7 +37,7 @@ draw2d.policy.EditPolicy = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Read or set object attributes.<br>
    * When no value is given, reads specified attribute from the element.<br>
    * When value is given, sets the attribute to that value.
@@ -104,7 +106,7 @@ draw2d.policy.EditPolicy = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the host if the policy has been installed.
    *
    * @param {draw2d.Canvas|draw2d.Figure} host
@@ -113,7 +115,7 @@ draw2d.policy.EditPolicy = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the host if the policy has been uninstalled.
    *
    * @param {draw2d.Canvas|draw2d.Figure} host

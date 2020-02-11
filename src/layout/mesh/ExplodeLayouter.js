@@ -6,14 +6,15 @@
  * @author Andreas Herz
  * @extend draw2d.layout.mesh.MeshLayouter
  */
-import draw2d from '../../packages';
+import draw2d from '../../packages'
 
-draw2d.layout.mesh.ExplodeLayouter = draw2d.layout.mesh.MeshLayouter.extend({
+draw2d.layout.mesh.ExplodeLayouter = draw2d.layout.mesh.MeshLayouter.extend(
+  /** @lends draw2d.layout.mesh.ExplodeLayouter.prototype */
+  {
 
 	MIN_MARGIN : 40,
 	
 	/**
-	 * @constructor 
 	 * Creates a new layouter object.
 	 */
     init: function()
@@ -21,7 +22,7 @@ draw2d.layout.mesh.ExplodeLayouter = draw2d.layout.mesh.MeshLayouter.extend({
     },
     
     /**
-     * @method
+     *
      * Return a changes list for an existing mesh/canvas to ensure that the element to insert 
      * did have enough space.
      * 
@@ -139,7 +140,7 @@ draw2d.layout.mesh.ExplodeLayouter = draw2d.layout.mesh.MeshLayouter.extend({
     
     
     /**
-     * @method
+     *
      * Determin Octant
 	 *
 	 *    0 | 1 | 2

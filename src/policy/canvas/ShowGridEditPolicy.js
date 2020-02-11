@@ -1,12 +1,14 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.ShowGridEditPolicy
  *
  * A cavas decoration which paints a grid in the background.
  * <br>
  * <br>
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     canvas.installEditPolicy(new draw2d.policy.canvas.ShowGridEditPolicy());
  *     var shape =  new draw2d.shape.basic.Text({text:"This is a simple text in a canvas with grid background."});
@@ -17,17 +19,16 @@
  *
  * @extends draw2d.policy.canvas.DecorationPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.ShowGridEditPolicy = draw2d.policy.canvas.DecorationPolicy.extend({
-
+draw2d.policy.canvas.ShowGridEditPolicy = draw2d.policy.canvas.DecorationPolicy.extend(
+  /** @lends draw2d.policy.canvas.ShowGridEditPolicy.prototype */
+  {
+  
   NAME: "draw2d.policy.canvas.ShowGridEditPolicy",
 
   GRID_COLOR: "#f0f0f0",
   GRID_WIDTH: 20,
 
   /**
-   * @constructor
    * Creates a new constraint policy for snap to grid
    *
    * @param {Number} [grid] the grid width of the canvas
@@ -61,7 +62,7 @@ draw2d.policy.canvas.ShowGridEditPolicy = draw2d.policy.canvas.DecorationPolicy.
   },
 
   /**
-   * @method
+   *
    * Set the grid color
    *
    * @param {draw2d.util.Color|String} color a color object or the CSS string declaration for a color
@@ -73,7 +74,7 @@ draw2d.policy.canvas.ShowGridEditPolicy = draw2d.policy.canvas.DecorationPolicy.
   },
 
   /**
-   * @method
+   *
    * Set a new grid width/height
    *
    * @param {Number} grid

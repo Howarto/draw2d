@@ -1,73 +1,62 @@
-/**
- * @class draw2d.Figure
- * A lightweight graphical object. Figures are rendered to a {@link draw2d.Canvas} object.
- *
- * @inheritable
- * @author Andreas Herz
- */
 
 import draw2d from 'packages'
 import jsonUtil from 'util/JSONUtil'
 import UUID from 'util/UUID'
 import extend from 'util/extend'
 
-draw2d.Figure = Class.extend({
-
+/**
+ * @class
+ *
+ *
+ */
+draw2d.Figure = Class.extend(
+  /**  @lends draw2d.Figure.prototype */
+  {
   NAME: "draw2d.Figure",
-
   MIN_TIMER_INTERVAL: 50, // minimum timer interval in milliseconds
 
-  // special attributes that should be get/set via method calls
-
-  /**
-   * @constructor
-   * Creates a new figure element which is not assigned to any canvas.
-   *
-   *
-   * @param {Object} [attr] the configuration of the shape
-   */
   init: function (attr, setter, getter) {
 
+    // @private
     this.setterWhitelist = extend({
-      /** @attr {String} id the unique id of the figure */
+      //  id the unique id of the figu re 
       id: this.setId,
-      /** @attr {Number} x the x offset of the figure in relation to the parent figure or canvas */
+      //  x the x offset of the figure in relation to the parent figure or canvas 
       x: this.setX,
-      /** @attr {Number} y the y offset of the figure in relation to the parent figure or canvas */
+      //  y the y offset of the figure in relation to the parent figure or canvas 
       y: this.setY,
-      /** @attr {Number} width the new width of the figure. Considering the minWidth of the shape */
+      //  width the new width of the figure. Considering the minWidth of the shape 
       width: this.setWidth,
-      /** @attr {Number} height the new height of the figure. Considering the minHeight of the shape */
+      //  height the new height of the figure. Considering the minHeight of the shape 
       height: this.setHeight,
-      /** @attr {draw2d.geo.Rectangle} boundingBox set the new bounding box of the shape */
+      //  boundingBox set the new bounding box of the shape 
       boundingBox: this.setBoundingBox,
-      /** @attr {Number} minWidth the new min width of the figure. */
+      //   minWidth the new min width of the figure. 
       minWidth: this.setMinWidth,
-      /** @attr {Number} minHeight the new min height of the figure. */
+      // minHeight the new min height of the figure. 
       minHeight: this.setMinHeight,
-      /** @attr {String} cssClass the css class of the shape. can be used to style the shape via CSS3 (SVG only) */
+      //  cssClass the css class of the shape. can be used to style the shape via CSS3 (SVG only) 
       cssClass: this.setCssClass,
-      /** @attr {Object} userData additional custom data which can be stored by the shape */
+      //  userData additional custom data which can be stored by the shape 
       userData: this.setUserData,
-      /** @attr {Boolean} draggable drives the dragging behaviour of the shape */
+      // draggable drives the dragging behaviour of the shape 
       draggable: this.setDraggable,
-      /** @attr {Boolean} resizeable drives the resizeable behaviour of the shape */
+      //  resizeable drives the resizeable behaviour of the shape 
       resizeable: this.setResizeable,
-      /** @attr {Boolean} selectable drives the selectable behaviour of the shape */
+      //  selectable drives the selectable behaviour of the shape 
       selectable: this.setSelectable,
-      /** @attr {Number} angle the rotation angle of the shape. At the moment only 90 degree increments are possible */
+      //  angle the rotation angle of the shape. At the moment only 90 degree increments are possible 
       angle: this.setRotationAngle,
-      /** @attr {Number} alpha the the alpha/opacity of the shape. value must be between [0..1] */
+      //  alpha the the alpha/opacity of the shape. value must be between [0..1] 
       alpha: this.setAlpha,
-      /** @attr {Number} opacity the the alpha/opacity of the shape. value must be between [0..1] */
+      //  opacity the the alpha/opacity of the shape. value must be between [0..1] 
       opacity: this.setAlpha,
-      /** @attr {Boolean} glow the glow flag for the shape. The representation of the "glow" depends on the shape */
+      //  glow the glow flag for the shape. The representation of the "glow" depends on the shape 
       glow: this.setGlow,
-      /** @attr {Boolean} visible set the visibility flag of the shape */
+      //  visible set the visibility flag of the shape 
       visible: this.setVisible,
-      /** @attr {Boolean} keepAspectRatio indicate if the shape should keep the aspect ratio during resize */
+      //  keepAspectRatio indicate if the shape should keep the aspect ratio during resize 
       keepAspectRatio: this.setKeepAspectRatio
-
     }, setter)
 
     this.getterWhitelist = extend({
@@ -84,8 +73,6 @@ draw2d.Figure = Class.extend({
       alpha: this.getAlpha,
       opacity: this.getAlpha
     }, getter)
-
-    let _this = this
 
     // all figures has an unique id. Required for figure get and persistence storage
     this.id = UUID.create()
@@ -189,7 +176,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Read or set shape attributes.<br>
    * When no value is given, reads specified attribute from the element.<br>
    * When value is given, sets the attribute to that value.
@@ -384,7 +371,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Add the figure to the current selection and propagate this to all edit policies.
    *
    * @param {Boolean} [asPrimarySelection] true if the element should be the primary selection
@@ -412,7 +399,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Unselect the figure and propagete this event to all edit policies.
    *
    * @private
@@ -435,7 +422,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns a function which returns the the figure which must handle the selection handling.
    *
    * @param {Function} [adapter] function which returns the figure which handles the selection handling
@@ -452,7 +439,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * @returns {Function}
    */
@@ -461,7 +448,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns true if the figure part of the current canvas selection.
    *
    * @since 5.5.6
@@ -477,7 +464,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Allows a user to attach (or remove) data to an element, without needing to create a custom figure or shape.
    * The data must be a valid JSON object.
    *
@@ -496,7 +483,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns any user data set previously on the given figure by setUserData.
    *
    * @since 2.7.2
@@ -507,7 +494,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the UUID of this element.
    *
    * @return {String}
@@ -518,7 +505,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Set the id of this element.
    *
    *     // Alternatively you can use the attr method:
@@ -536,7 +523,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Return the css styling class name of the element.
    *
    *
@@ -547,7 +534,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the css class of the node.
    *
    *      // Alternatively you can use the attr method:
@@ -577,7 +564,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The method will return true if the class is assigned to the element, even if other classes also are.
    *
    * @param {String} className the class name to check
@@ -592,7 +579,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Add a CSS class to the figure.<br>
    * It's important to note that this method does not replace a class. It simply adds the class,
    * appending it to any which may already be assigned to the elements.
@@ -616,7 +603,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * Remove the given css class name from the figure
    *
@@ -637,7 +624,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * Add or remove the given css class name from the figure
    *
@@ -660,7 +647,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the canvas element of this figures. This can be used to determine whenever an element
    * is added or removed to the canvas.
    *
@@ -705,7 +692,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the current assigned canvas container.
    *
    * @return {draw2d.Canvas}
@@ -716,7 +703,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Start a timer which calls the onTimer method in the given interval.
    *
    * @param {Number} milliSeconds
@@ -736,7 +723,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Stop the internal timer.
    *
    */
@@ -750,7 +737,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Callback method for the internal timer handling<br>
    * Inherit classes must override this method if they want use the timer feature.
    *
@@ -765,7 +752,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Moves the element so it is the closest to the viewer’s eyes, on top of other elements. Additional
    * the internal model changed as well.
    *
@@ -830,7 +817,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Moves the element to the background. Additional
    * the internal model changed as well.
    *
@@ -872,7 +859,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Install a new edit policy to the figure. Each editpolicy is able to focus on a single editing
    * task or group of related tasks. This also allows editing behavior to be selectively reused across
    * different figure implementations. Also, behavior can change dynamically, such as when the layouts
@@ -902,7 +889,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    *
    * UnInstall the edit policy from the figure. Either the instance itself if found
    * or all kind of the given edit policies.
@@ -936,7 +923,6 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
    * Add a child figure to the figure. The hands over figure doesn't support drag&drop
    * operations. It's only a decorator for the connection.<br>
    * Mainly for labels or other decorations
@@ -947,6 +933,7 @@ draw2d.Figure = Class.extend({
    *
    *     canvas.add( start);
    *
+   * 
    * @param {draw2d.Figure} child the figure to add as decoration to the connection.
    * @param {draw2d.layout.locator.Locator} locator the locator for the child.
    * @param {Number} [index] optional index where to insert the figure
@@ -985,7 +972,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Remove the child figure from this figure and the canvas
    *
    * @param {draw2d.Figure} child the figure to remove.
@@ -1025,7 +1012,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return all children/decorations of this shape which has been added with
    * draw2d.Figure.add
    *
@@ -1039,7 +1026,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Remove all children/decorations of this shape
    *
    */
@@ -1055,7 +1042,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * return the current SVG shape element or create it on demand.
    *
    * @protected
@@ -1080,7 +1067,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the top level shape element. May the figure has a set of SVG elements. In this case this
    * method must return the top level node.<br>
    * This method is used for the toFront/toBack method to order the nodes in the correct way.
@@ -1094,7 +1081,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Inherited classes must override this method to implement it's own draw functionality.
    *
    * @template
@@ -1106,7 +1093,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * propagate all attributes like color, stroke,... to the shape element
    *
    * @param {Object} [attributes] the style attributes for the SVG shape
@@ -1176,7 +1163,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * apply a transformation to the shape like rotation, translate,..
    *
    * @private
@@ -1187,7 +1174,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Highlight the element or remove the highlighting
    *
    *      // Alternatively you can use the attr method:
@@ -1207,7 +1194,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Allow dragging only when the cursor is over a specific part of the figure.
    * <br>
    * Override this method to specify the bounding box of an element or a draw2d.util.ArrayList
@@ -1226,7 +1213,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called if the drag and drop action begins. You can return [false] if you
    * want avoid that the figure can be move.
    *
@@ -1288,7 +1275,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Don't call them manually. This will be done by the framework.<br>
    * Will be called if the object are moved via drag and drop.
    * Sub classes can override this method to implement additional stuff. Don't forget to call
@@ -1342,7 +1329,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the framework if the figure returns false for the drag operation. In this
    * case we send a "panning" event - mouseDown + mouseMove. This is very useful for
    * UI-Widget like slider, spinner,...
@@ -1364,7 +1351,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the framework if the panning event of the figures ends. This happens
    * after the mous up event if the panning is active.
    *
@@ -1378,7 +1365,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Will be called after a drag and drop action.<br>
    * Sub classes can override this method to implement additional stuff. Don't forget to call
    * the super implementation via <code>this._super();</code>
@@ -1420,7 +1407,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the framework during drag&drop operations if the user drag a figure over this figure
    *
    * @param {draw2d.Figure} draggedFigure The figure which is currently dragging
@@ -1443,7 +1430,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called by the framework during drag&drop operations if the user drag a figure over this figure
    *
    * @param {draw2d.Figure} draggedFigure The figure which is currently dragging
@@ -1454,7 +1441,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called if the DragDrop object leaving the current hover figure.
    *
    * @param {draw2d.Figure} draggedFigure The figure which is currently dragging
@@ -1465,7 +1452,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Called if the user drop this element onto the dropTarget. This event is ONLY fired if the
    * shape return "this" in the {@link draw2d.Figure#onDragEnter} method.
    *
@@ -1481,7 +1468,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called if the user dropped an figure onto this element. This event is ONLY fired if the
    * in the canvas installed {@link draw2d.policy.canvas.DropInterceptorPolicy} allow this.
    *
@@ -1499,7 +1486,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Callback method for the mouse enter event. Usefull for mouse hover-effects.
    * Override this method for your own effects. Don't call them manually.
    *
@@ -1510,7 +1497,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Callback method for the mouse leave event. Useful for mouse hover-effects.
    *
    * @template
@@ -1519,7 +1506,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Called when a user dbl clicks on the element
    *
    *      // Alternatively you can register an event with:
@@ -1535,7 +1522,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Called when a user clicks on the element.
    *
    *      // You can alternatively register an event handler with:
@@ -1550,7 +1537,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * called by the framework if the figure should show the context menu.<br>
    * The strategy to show the context menu depends on the platform. Either looong press or
    * right click with the mouse.
@@ -1569,7 +1556,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the alpha blending of this figure.
    *
    *      // Alternatively you can use the attr method:
@@ -1583,7 +1570,6 @@ draw2d.Figure = Class.extend({
    *      });
    *
    * @param {Number} percent value between [0..1].
-   * @template
    **/
   setAlpha: function (percent) {
     percent = Math.min(1, Math.max(0, parseFloat(percent)))
@@ -1600,7 +1586,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Return the alpha blending of the figure
    *
    * @return {Number} the current alpha blending
@@ -1611,7 +1597,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Set the rotation angle in degree [0..356]<br>
    * <b>Only steps of 90 degree is working well</b>
    * <br>
@@ -1640,7 +1626,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * return the rotation angle of the figure in degree of [0..356].
    *
    * <br>
@@ -1654,7 +1640,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Show/hide the element. The element didn't receive any mouse events (click, dblclick) if you hide the
    * figure.
    *
@@ -1687,7 +1673,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return true if the figure visible.
    *
    * @return {Boolean}
@@ -1698,7 +1684,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Guarantee, that the figure width/height will not be distorted. Applicable before calling setDimension().
    * It is false by default.
    *
@@ -1712,7 +1698,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the flag if the shape keep the aspect ratio.
    *
    * @since 4.1.0
@@ -1722,7 +1708,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the current z-index of the element. Currently this is an expensive method. The index will be calculated
    * all the time. Caching is not implemented at the moment.
    *
@@ -1742,7 +1728,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the flag if this object can snap to grid or geometry.
    * A window of dialog should set this flag to false.
    *
@@ -1756,7 +1742,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns true if the figure can snap to any helper like a grid, guide, geometrie
    * or something else.
    *
@@ -1775,7 +1761,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the hot spot for all snapTo### operations.
    *
    * @param {draw2d.geo.Point} point
@@ -1787,7 +1773,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the width of the figure and consider the minWidth attribute
    *
    * @param {Number} width the new width of the figure
@@ -1801,7 +1787,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The current width of the figure.
    *
    * @type {Number}
@@ -1811,7 +1797,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the heigth of the figure and consider the minWidth attribute
    *
    * @param {Number} height the new height of the figure
@@ -1825,7 +1811,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The current height of the figure.
    *
    * @return {Number}
@@ -1836,7 +1822,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * This value is relevant for the interactive resize of the figure.
    *
    * @return {Number} Returns the min. width of this object.
@@ -1846,7 +1832,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the minimum width of this figure
    *
    * @param {Number} w
@@ -1862,7 +1848,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * This value is relevant for the interactive resize of the figure.
    *
    * @return {Number} Returns the min. height of this object.
@@ -1872,7 +1858,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the minimum height of the figure.
    *
    * @param {Number} h
@@ -1889,7 +1875,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * the the x-offset related to the parent figure or canvas
    *
    * @param {Number} x the new x offset of the figure
@@ -1903,7 +1889,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The x-offset related to the parent figure or canvas.
    *
    * @return {Number} the x-offset to the parent figure
@@ -1913,7 +1899,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * the the y-offset related to the parent figure or canvas
    *
    * @param {Number} y the new x offset of the figure
@@ -1928,7 +1914,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * The y-offset related to the parent figure or canvas.
    *
    * @return {Number} The y-offset to the parent figure.
@@ -1939,7 +1925,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * The x-offset related to the canvas.
    *
    * @return {Number} the x-offset to the canvas
@@ -1954,7 +1940,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * The y-offset related to the canvas.
    *
    * @return {Number} The y-offset to the canvas.
@@ -1968,7 +1954,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Returns the absolute y-position of the port.
    *
    * @type {draw2d.geo.Point}
@@ -1978,7 +1964,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns the absolute y-position of the port.
    *
    * @return {draw2d.geo.Rectangle}
@@ -1989,7 +1975,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Set the position of the object.
    *
    *      // Alternatively you can use the attr method:
@@ -2048,7 +2034,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Get the current position of the figure
    *
    * @return {draw2d.geo.Point}
@@ -2059,7 +2045,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Translate the figure with the given x/y offset.
    *
    * @param {Number} dx The x offset to translate
@@ -2073,7 +2059,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Set the new width and height of the figure.
    *
    *      // Alternatively you can use the attr method:
@@ -2151,7 +2137,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Set the bounding box of the figure
    *
    *      // Alternatively you can use the attr method:
@@ -2183,7 +2169,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns the bounding box of the figure in absolute position to the canvas.
    *
    * @return {draw2d.geo.Rectangle}
@@ -2193,7 +2179,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Detect whenever the hands over coordinate is inside the figure.
    * The default implementation is a simple bounding box test.
    *
@@ -2212,7 +2198,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Switch on/off the drag drop behaviour of this object
    *
    * @param {Boolean} flag The new drag drop indicator
@@ -2224,7 +2210,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the Drag drop enable flag
    *
    * @return {Boolean} The new drag drop indicator
@@ -2240,7 +2226,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Returns the true if the figure can be resized.
    *
    * @return {Boolean}
@@ -2250,7 +2236,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * You can change the resizeable behaviour of this object. Hands over [false] and
    * the figure has no resizehandles if you select them with the mouse.<br>
    *
@@ -2269,7 +2255,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Indicates whenever the element is selectable by user interaction or API.
    *
    * @return {Boolean}
@@ -2285,7 +2271,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * You can change the selectable behavior of this object. Hands over [false] and
    * the figure has no selection handles if you try to select them with the mouse.<br>
    *
@@ -2299,7 +2285,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return true if the object doesn't care about the aspect ratio.
    * You can change the height and width independent.<br>
    *
@@ -2312,7 +2298,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return false if you avoid that the user can delete your figure.
    * Sub class can override this method.
    *
@@ -2323,7 +2309,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the flag if the shape is deleteable.
    *
    * @param {Boolean} flag enable or disable flag for the delete operation
@@ -2336,7 +2322,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the parent of this figure.
    * Don't call them manually.
    *
@@ -2359,7 +2345,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the parent of this figure.
    *
    * @return {draw2d.Figure}
@@ -2369,7 +2355,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Check to see if a figure is a descendant of another figure.
    * <br>
    * The contains() method returns true if the figure provided by the argument is a descendant of this figure,
@@ -2393,7 +2379,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the top most parent of this figure. This can be an layout figure or parent container
    *
    * @return {draw2d.Figure}
@@ -2408,7 +2394,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the assigned composite of this figure.
    *
    * @param {draw2d.shape.composite.StrongComposite} composite The assigned composite of this figure
@@ -2425,7 +2411,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the assigned composite of this figure.
    *
    * @return {draw2d.shape.composite.StrongComposite}
@@ -2437,7 +2423,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Execute all handlers and behaviors attached to the figure for the given event type.
    *
    *
@@ -2479,7 +2465,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Attach an event handler function for one or more events to the figure.
    * To remove events bound with .on(), see {@link #off}.
    *
@@ -2534,7 +2520,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * The .off() method removes event handlers that were attached with {@link #on}.<br>
    * Calling .off() with no arguments removes all handlers attached to the elements.<br>
    * <br>
@@ -2567,7 +2553,7 @@ draw2d.Figure = Class.extend({
 
 
   /**
-   * @method
+   * 
    * Returns the best figure at the location [x,y]. It is a simple hit test. Keep in mind that only visible objects
    * are returned.
    *
@@ -2606,7 +2592,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Returns the Command to perform the specified Request or null.
    *
    * @param {draw2d.command.CommandType} request describes the Command being requested
@@ -2643,7 +2629,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Clone the figure. <br>
    * You must override and implement the methods <b>getPersistentAttributes</b> and <b>setPersistentAttributes</b> for your custom
    * figures if the have special attributes.
@@ -2687,7 +2673,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Return an objects with all important attributes for XML or JSON serialization
    *
    * @return
@@ -2722,7 +2708,7 @@ draw2d.Figure = Class.extend({
   },
 
   /**
-   * @method
+   * 
    * Read all attributes from the serialized properties and transfer them into the shape.
    *
    * @param {Object} memento

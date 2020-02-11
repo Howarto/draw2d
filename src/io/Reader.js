@@ -1,25 +1,21 @@
+import draw2d from '../packages'
 
 /**
- * @class draw2d.io.Reader
+ * @class
  * Template class for general import of a document into the canvas.
  *
  * @author andreas Herz
  */
-import draw2d from '../packages';
+draw2d.io.Reader = Class.extend(
+  /** @lends draw2d.io.Reader */
+  {
 
-
-draw2d.io.Reader = Class.extend({
-
-    /**
-     * @constructor
-     * @private
-     */
     init: function(){
 
     },
 
     /**
-     * @method
+     *
      *
      * Restore the canvas from a given String.
      *

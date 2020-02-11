@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.GhostMoveSelectionPolicy
  *
@@ -7,9 +10,8 @@
  * The shapes are updated after the drag&drop operation.
  *
  *
- * See the example:
  *
- *       @example preview small frame
+ * @example
  *
  *       // install the policy to the canvas
  *       canvas.installEditPolicy(new draw2d.policy.canvas.GhostMoveSelectionPolicy());
@@ -24,14 +26,13 @@
  * @author Andreas Herz
  * @extends draw2d.policy.canvas.SingleSelectionPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.GhostMoveSelectionPolicy = draw2d.policy.canvas.SingleSelectionPolicy.extend({
+draw2d.policy.canvas.GhostMoveSelectionPolicy = draw2d.policy.canvas.SingleSelectionPolicy.extend(
+  /** @lends draw2d.policy.canvas.GhostMoveSelectionPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.canvas.GhostMoveSelectionPolicy",
 
   /**
-   * @constructor
    */
   init: function () {
     this.clone = null

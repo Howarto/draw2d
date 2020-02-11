@@ -1,12 +1,14 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.connection.DirectRouter
  *
  * Router for direct connections between two ports. Beeline
  * <br>
  * <br>
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let createConnection=function(){
  *        let con = new draw2d.Connection();
@@ -42,15 +44,14 @@
  *
  * @extends  draw2d.layout.connection.ConnectionRouter
  */
-import draw2d from '../../packages'
 
-
-draw2d.layout.connection.DirectRouter = draw2d.layout.connection.ConnectionRouter.extend({
+draw2d.layout.connection.DirectRouter = draw2d.layout.connection.ConnectionRouter.extend(
+  /** @lends draw2d.layout.connection.DirectRouter.prototype */
+  {
 
   NAME: "draw2d.layout.connection.DirectRouter",
 
   /**
-   * @constructor
    * Creates a new Router object
    */
   init: function () {
@@ -59,7 +60,7 @@ draw2d.layout.connection.DirectRouter = draw2d.layout.connection.ConnectionRoute
 
 
   /**
-   * @method
+   * 
    * Callback method if the router has been assigned to a connection.
    *
    * @param {draw2d.Connection} connection The assigned connection
@@ -72,7 +73,7 @@ draw2d.layout.connection.DirectRouter = draw2d.layout.connection.ConnectionRoute
 
 
   /**
-   * @method
+   * 
    * Invalidates the given Connection
    */
   invalidate: function () {

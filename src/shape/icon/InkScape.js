@@ -1,9 +1,11 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.icon.InkScape
 
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let icon =  new draw2d.shape.icon.InkScape();
  *
@@ -13,16 +15,16 @@
  * @author Andreas Herz
  * @extends draw2d.shape.icon.Icon
  */
-import draw2d from '../../packages'
+draw2d.shape.icon.InkScape = draw2d.shape.icon.Icon.extend(
+  /** @lends draw2d.shape.icon.InkScape.prototype */
+  {
 
-draw2d.shape.icon.InkScape = draw2d.shape.icon.Icon.extend({
   NAME: "draw2d.shape.icon.InkScape",
 
   /**
    *
-   * @constructor
    * Creates a new icon element which are not assigned to any canvas.
-   *
+   * 
    * @param {Object} attr the configuration of the shape
    */
   init: function (attr, setter, getter) {

@@ -1,12 +1,14 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.basic.Text
  * Implements a simple text with word wrapping.<br>The height of the element is automatic calculated. The widht of
  * the element is changeable by the user and respect the minWidth constraint.
  * <br>
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let shape =  new draw2d.shape.basic.Text({text:"This is a simple text with some loooooong word in."});
  *
@@ -16,14 +18,13 @@
  * @since 4.2.3
  * @extends draw2d.shape.basic.Label
  */
-import draw2d from '../../packages'
-
-draw2d.shape.basic.Text = draw2d.shape.basic.Label.extend({
+draw2d.shape.basic.Text = draw2d.shape.basic.Label.extend(
+  /** @lends draw2d.shape.basic.Text.prototype */
+  {
 
   NAME: "draw2d.shape.basic.Text",
 
   /**
-   * @constructor
    * Creates a new text element.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -77,7 +78,7 @@ draw2d.shape.basic.Text = draw2d.shape.basic.Label.extend({
   },
 
   /**
-   * @method
+   *
    * clear the internal cache for width/height precalculation
    * @private
    */
@@ -115,7 +116,7 @@ draw2d.shape.basic.Text = draw2d.shape.basic.Label.extend({
 
 
   /**
-   * @method
+   *
    * calculates the attributes (wrapped text and width, height) with the given parameter
    *
    * @private

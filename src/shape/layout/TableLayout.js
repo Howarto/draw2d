@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.layout.TableLayout
  *
@@ -8,7 +11,7 @@
  * See the example below with and without padding or alignment settings
  *
  *
- *     @example preview small frame
+ * @example
  *
  *         let label1 =  new draw2d.shape.basic.Label({text:"[0,1] with long long long long label", fontColor:"#00AF00"});
  *         let label2 =  new draw2d.shape.basic.Label({text:"[1,1] padding:10", fontColor:"#00AF00"});
@@ -36,9 +39,9 @@
  * @extends draw2d.shape.layout.Layout
  * @since 5.3.0
  */
-import draw2d from '../../packages'
-
-draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
+draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend(
+  /** @lends draw2d.shape.layout.TableLayout.prototype */
+  {
 
   NAME: "draw2d.shape.layout.TableLayout",
 
@@ -53,7 +56,6 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
     }
   },
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape
@@ -133,7 +135,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
     this._super(
       extend({stroke: 1, resizeable: false}, attr),
       extend({
-        /** @attr {Number} padding the padding in pixel around the text */
+        // @attr {Number} padding the padding in pixel around the text */
         padding: this.setPadding
       }, setter),
       extend({
@@ -144,7 +146,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the padding of the given cell.
    *
    *
@@ -170,7 +172,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the padding of the outer grid.
    *
    **/
@@ -185,7 +187,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
 
 
   /**
-   * @method
+   * 
    * Set the padding of the outer grid.
    *
    *      // Alternatively you can use the attr method:
@@ -217,7 +219,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the padding of the outer grid.
    *
    **/
@@ -247,7 +249,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
 
   /**
    *
-   * @method
+   * 
    * Removes the row from the TableLayout
    *
    * @returns the removed row
@@ -267,7 +269,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
 
 
   /**
-   * @method
+   * 
    * Add a row to the table grid.
    * This method has a variable argument list. All arguments are added in one row.
    *
@@ -343,7 +345,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
 
 
   /**
-   * @method
+   * 
    * Set the vertical alignment of a cell. Possible values are
    * <ul>
    * <li>top</li>
@@ -374,7 +376,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   * 
    * Get the vertical alignment of a cell. Possible values are
    * <ul>
    * <li>top</li>
@@ -397,7 +399,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
 
 
   /**
-   * @method
+   * 
    * Set the alignment of a cell. Possible values are
    * <ul>
    * <li>left</li>
@@ -430,7 +432,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   * 
    * Return the alignment of a cell. Possible values are
    * <ul>
    * <li>left</li>
@@ -454,7 +456,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
 
 
   /**
-   * @method
+   * 
    * Return the layout information for the given row/column or <b>null</b>
    * if the row/column index is out of range.
    *
@@ -478,7 +480,7 @@ draw2d.shape.layout.TableLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   * 
    * Recalculate the layout of the table
    *
    * @private

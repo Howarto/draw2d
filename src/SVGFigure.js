@@ -1,22 +1,23 @@
 
 /**
  * @class draw2d.SVGFigure
- * Abstract class which can handle plain SVG content. Inherit class must override the method
+ * @classdesc Abstract class which can handle plain SVG content. Inherit class must override the method
  * <code>getSVG()</code>.
  *
  * @author Andreas Herz
  * @extends draw2d.SetFigure
  */
 
-import draw2d from 'packages';
-import extend from 'util/extend';
+import draw2d from 'packages'
+import extend from 'util/extend'
 
-draw2d.SVGFigure = draw2d.SetFigure.extend({
-
-    NAME : "draw2d.SVGFigure",
+draw2d.SVGFigure = draw2d.SetFigure.extend(
+    /** @lends draw2d.SVGFigure.prototype */
+    {
+    
+    NAME: "draw2d.SVGFigure",
 
     /**
-     * @constructor
      * Creates a new figure element which are not assigned to any canvas.
      *
      * @param {Object} [attr] the configuration of the shape
@@ -55,7 +56,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend({
 	},
 
     /**
-     * @method
+     * 
      * Returns the current used SVG as string
      *
      * @returns {String}
@@ -66,7 +67,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend({
     },
 
     /**
-     * @method
+     * 
      * Set the SVG of this shape
      *
      * @param {String} svg The new SVG to render as String
@@ -111,7 +112,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend({
 
 
     /**
-     * @method
+     * 
      * Helper method to transform the SVG string into a raphaelJS set.
      *
      * @private
@@ -324,7 +325,7 @@ draw2d.SVGFigure = draw2d.SetFigure.extend({
     },
 
     /**
-     * @method
+     * 
      * Read all attributes from the serialized properties and transfer them into the shape.
      *
      * @param {Object} memento

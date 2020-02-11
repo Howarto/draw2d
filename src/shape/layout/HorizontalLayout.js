@@ -1,3 +1,7 @@
+import draw2d from '../../packages'
+import extend from '../../util/extend'
+
+
 /**
  * @class draw2d.shape.layout.HorizontalLayout
  * The HorizontalLayout class arranges the layout elements in a horizontal sequence,
@@ -10,7 +14,7 @@
  * See the example below with and without gap and border settings
  *
  *
- *     @example preview small frame
+ * @example
  *
  *     // first container without any gap and a border of the parent
  *     // container
@@ -46,15 +50,13 @@
  * @extends draw2d.shape.layout.Layout
  * @since 2.5.1
  */
-import draw2d from '../../packages'
-import extend from '../../util/extend'
-
-draw2d.shape.layout.HorizontalLayout = draw2d.shape.layout.Layout.extend({
-
+draw2d.shape.layout.HorizontalLayout = draw2d.shape.layout.Layout.extend(
+  /** @lends draw2d.shape.layout.HorizontalLayout.prototype */
+  {
+  
   NAME: "draw2d.shape.layout.HorizontalLayout",
 
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape
@@ -88,7 +90,7 @@ draw2d.shape.layout.HorizontalLayout = draw2d.shape.layout.Layout.extend({
     this._super(
       extend({width: 1, height: 1, gap: 0}, attr),
       extend({
-        /** @attr {Number} gap the gap between the children shapes */
+        // @attr {Number} gap the gap between the children shapes */
         gap: this.setGap
       }, setter),
       extend({
@@ -110,7 +112,7 @@ draw2d.shape.layout.HorizontalLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   *
    * Set the gap width between child components within this layout.
    * This will only affect the space between components, not the space around all the components in the layout.
    *
@@ -126,7 +128,7 @@ draw2d.shape.layout.HorizontalLayout = draw2d.shape.layout.Layout.extend({
   },
 
   /**
-   * @method
+   *
    * Return the gap between the children shapes
    *
    * @since 5.0.0

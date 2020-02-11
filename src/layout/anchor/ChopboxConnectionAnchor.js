@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.anchor.ChopboxConnectionAnchor
  *
@@ -12,25 +15,23 @@
  * @author Andreas Herz
  * @extends draw2d.layout.anchor.ConnectionAnchor
  */
-import draw2d from '../../packages'
 
-
-draw2d.layout.anchor.ChopboxConnectionAnchor = draw2d.layout.anchor.ConnectionAnchor.extend({
+draw2d.layout.anchor.ChopboxConnectionAnchor = draw2d.layout.anchor.ConnectionAnchor.extend(
+  /** @lends draw2d.layout.anchor.ChopboxConnectionAnchor.prototype */
+  {
 
   NAME: "draw2d.layout.anchor.ChopboxConnectionAnchor",
 
   /**
-   * @constructor
    *
    * @param {draw2d.Figure} owner the figure to use for the anchor calculation
-
    */
   init: function (owner) {
     this._super(owner)
   },
 
   /**
-   * @method
+   *
    *
    * Returns the location where the Connection should be anchored in
    * absolute coordinates. The anchor may use the given reference
@@ -78,7 +79,7 @@ draw2d.layout.anchor.ChopboxConnectionAnchor = draw2d.layout.anchor.ConnectionAn
   },
 
   /**
-   * @method
+   *
    *
    * Returns the reference point for this anchor in absolute coordinates. This might be used
    * by another anchor to determine its own location.

@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.layout.locator.PolylineMidpointLocator
  *
@@ -9,13 +12,13 @@
  * @author Andreas Herz
  * @extend draw2d.layout.locator.ManhattanMidpointLocator
  */
-import draw2d from '../../packages'
+draw2d.layout.locator.PolylineMidpointLocator = draw2d.layout.locator.ManhattanMidpointLocator.extend(
+  /** @lends draw2d.layout.locator.PolylineMidpointLocator.prototype */
+  {
 
-draw2d.layout.locator.PolylineMidpointLocator = draw2d.layout.locator.ManhattanMidpointLocator.extend({
   NAME: "draw2d.layout.locator.PolylineMidpointLocator",
 
   /**
-   * @constructor
    * Constructs a ManhattanMidpointLocator with associated Connection c.
    *
    */
@@ -25,7 +28,7 @@ draw2d.layout.locator.PolylineMidpointLocator = draw2d.layout.locator.ManhattanM
 
 
   /**
-   * @method
+   *
    * Relocates the given Figure.
    *
    * @param {Number} index child index of the target

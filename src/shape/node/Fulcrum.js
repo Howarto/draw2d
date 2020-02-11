@@ -1,11 +1,14 @@
+import draw2d from '../../packages'
+import jsonUtil from '../../util/JSONUtil'
+
+
 /**
  * @class draw2d.shape.node.Fulcrum
  *
  * A horizontal bus shape with a special kind of port handling. The hole figure is a hybrid port.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     canvas.add( new draw2d.shape.node.Fulcrum(),50,10);
  *     canvas.add( new draw2d.shape.node.Fulcrum(),80,100);
@@ -13,15 +16,13 @@
  *
  * @extends draw2d.shape.node.Hub
  */
-import draw2d from '../../packages'
-import jsonUtil from '../../util/JSONUtil'
-
-draw2d.shape.node.Fulcrum = draw2d.shape.node.Hub.extend({
+draw2d.shape.node.Fulcrum = draw2d.shape.node.Hub.extend(
+  /** @lends draw2d.shape.node.Fulcrum.prototype */
+  {
 
   NAME: "draw2d.shape.node.Fulcrum",
 
   /**
-   * @constructor
    *
    * @param {Object} [attr] the configuration of the shape
    */

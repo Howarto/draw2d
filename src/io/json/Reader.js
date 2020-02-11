@@ -34,19 +34,21 @@
  *
  * @extends draw2d.io.Reader
  */
-import draw2d from '../../packages';
+import draw2d from '../../packages'
 
 
-draw2d.io.json.Reader = draw2d.io.Reader.extend({
-
-    NAME : "draw2d.io.json.Reader",
+draw2d.io.json.Reader = draw2d.io.Reader.extend(
+    /** @lends draw2d.io.json.Reader.prototype */
+    {
+    
+    NAME: "draw2d.io.json.Reader",
 
     init: function(){
         this._super();
     },
 
     /**
-     * @method
+     * 
      *
      * Restore the canvas from a given JSON object.
      *
@@ -136,7 +138,7 @@ draw2d.io.json.Reader = draw2d.io.Reader.extend({
     },
 
     /**
-     * @method
+     * 
      * Factory method to create an instance of the given element type.
      *
      * @param {String} type
@@ -148,7 +150,7 @@ draw2d.io.json.Reader = draw2d.io.Reader.extend({
     },
 
     /**
-     * @method
+     * 
      * Factory method to create an instance of the given element.
      *
      * @param {Object} element

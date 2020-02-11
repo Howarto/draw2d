@@ -1,11 +1,12 @@
+import draw2d from '../../packages'
+
 /**
  * @class draw2d.shape.composite.Raft
  * Raft figures are shapes, which aggregate multiple figures. It works like a real raft. Aboard figures are
  * moved if the raft figures moves.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let rect1 =  new draw2d.shape.composite.Raft({width:200, height:100});
  *     let rect2 =  new draw2d.shape.basic.Rectangle({width:50, height:50});
@@ -21,13 +22,13 @@
  * @extends draw2d.shape.composite.WeakComposite
  * @since 4.7.0
  */
-import draw2d from '../../packages'
+draw2d.shape.composite.Raft = draw2d.shape.composite.WeakComposite.extend(
+  /** @lends draw2d.shape.composite.Raft.prototype */
+  {
 
-draw2d.shape.composite.Raft = draw2d.shape.composite.WeakComposite.extend({
   NAME: "draw2d.shape.composite.Raft",
 
   /**
-   * @constructor
    * Creates a new figure element which are not assigned to any canvas.
    *
    * @param {Object} [attr] the configuration of the shape
@@ -41,7 +42,7 @@ draw2d.shape.composite.Raft = draw2d.shape.composite.WeakComposite.extend({
 
 
   /**
-   * @method
+   *
    * Will be called if the drag and drop action begins. You can return [false] if you
    * want avoid that the figure can be move.
    *
@@ -63,7 +64,7 @@ draw2d.shape.composite.Raft = draw2d.shape.composite.WeakComposite.extend({
   },
 
   /**
-   * @method
+   *
    * Set the position of the object.
    *
    * @param {Number/draw2d.geo.Point} x The new x coordinate of the figure
@@ -153,7 +154,7 @@ draw2d.shape.composite.Raft = draw2d.shape.composite.WeakComposite.extend({
   },
 
   /**
-   * @method
+   *
    * Return all figures which are aboard of this shape. These shapes are moved as well if the raft
    * is moving.
    *
@@ -184,7 +185,7 @@ draw2d.shape.composite.Raft = draw2d.shape.composite.WeakComposite.extend({
   },
 
   /**
-   * @method
+   *
    * return the next potential composite parent figure
    *
    * @param {draw2d.Figure} figureToTest

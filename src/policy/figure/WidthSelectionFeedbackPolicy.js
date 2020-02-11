@@ -1,11 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.figure.WidthSelectionFeedbackPolicy
  * This selection shows only selection handles for the width. It is only possible to change the width
  * of an shaped. The height stays always the same or is recalculated by the figure itself.
  *
- *     @example preview small frame
- *
- *
+ * @example
  *       // add some demo figure to the canvas
  *       //
  *       let shape =new draw2d.shape.basic.Rectangle({width:50, height:100, x:10, y:30});
@@ -18,14 +19,13 @@
  * @author Andreas Herz
  * @extends draw2d.policy.figure.SelectionFeedbackPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.figure.WidthSelectionFeedbackPolicy = draw2d.policy.figure.SelectionFeedbackPolicy.extend({
+draw2d.policy.figure.WidthSelectionFeedbackPolicy = draw2d.policy.figure.SelectionFeedbackPolicy.extend(
+  /** @lends draw2d.policy.figure.BusSelectionFeedbackPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.figure.BusSelectionFeedbackPolicy",
 
   /**
-   * @constructor
    * Creates a new Router object
    */
   init: function (attr, setter, getter) {
@@ -34,7 +34,7 @@ draw2d.policy.figure.WidthSelectionFeedbackPolicy = draw2d.policy.figure.Selecti
 
 
   /**
-   * @method
+   *
    * Called by the framework of the Policy should show a resize handle for the given shape
    *
    * @param {draw2d.Canvas} canvas the host of the diagram
@@ -61,7 +61,7 @@ draw2d.policy.figure.WidthSelectionFeedbackPolicy = draw2d.policy.figure.Selecti
 
 
   /**
-   * @method
+   *
    * Callback if the figure has been moved
    *
    * @param {draw2d.Canvas} canvas The host canvas

@@ -20,9 +20,8 @@
  * <br>
  * <br>
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     // Override the default connection creation.
  *     //
@@ -42,16 +41,18 @@
  *
  * @extends draw2d.policy.connection.ConnectionCreatePolicy
  */
-import draw2d from '../../packages';
+import draw2d from '../../packages'
 
-draw2d.policy.connection.OrthogonalConnectionCreatePolicy = draw2d.policy.connection.ConnectionCreatePolicy.extend({
-
-    NAME : "draw2d.policy.connection.ClickConnectionCreatePolicy",
+draw2d.policy.connection.OrthogonalConnectionCreatePolicy = draw2d.policy.connection.ConnectionCreatePolicy.extend(
+    /** @lends draw2d.policy.connection.ClickConnectionCreatePolicy.prototype */
+    {
+    
+    NAME: "draw2d.policy.connection.ClickConnectionCreatePolicy",
 
     /**
-     * @constructor
      *
      * Creates a new connection create policy instance
+
      */
     init: function(attr, setter, getter)
     {
@@ -66,7 +67,7 @@ draw2d.policy.connection.OrthogonalConnectionCreatePolicy = draw2d.policy.connec
     },
 
     /**
-     * @method
+     * 
      * Called by the canvas if the user click on a figure.
      *
      * @param {draw2d.Figure} the figure under the click event. Can be null
@@ -852,7 +853,7 @@ draw2d.policy.connection.OrthogonalConnectionCreatePolicy = draw2d.policy.connec
 
 
     /**
-     * @method
+     * 
      *
      * @param {draw2d.Canvas} canvas
      * @param {Number} x the x-coordinate of the mouse event
@@ -869,7 +870,7 @@ draw2d.policy.connection.OrthogonalConnectionCreatePolicy = draw2d.policy.connec
     },
 
     /**
-     * @method
+     * 
      * Callback if the user press a key down
      *
      * @param {draw2d.Canvas} canvas the related canvas

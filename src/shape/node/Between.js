@@ -1,10 +1,12 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.node.Between
  * A simple Node which has a  InputPort and OutputPort. Mainly used for demo and examples.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     let figure =  new draw2d.shape.node.Between({color: "#3d3d3d"});
  *
@@ -12,16 +14,15 @@
  *
  * @extends draw2d.shape.basic.Rectangle
  */
-import draw2d from '../../packages'
-
-draw2d.shape.node.Between = draw2d.shape.basic.Rectangle.extend({
-
+draw2d.shape.node.Between = draw2d.shape.basic.Rectangle.extend(
+  /** @lends draw2d.shape.node.Between.prototype */
+  {
+  
   NAME: "draw2d.shape.node.Between",
 
   DEFAULT_COLOR: new draw2d.util.Color("#4D90FE"),
 
   /**
-   * @constructor
    *
    * @param {Object} [attr] the configuration of the shape
    */

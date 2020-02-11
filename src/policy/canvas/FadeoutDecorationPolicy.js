@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.canvas.FadeoutDecorationPolicy
  *
@@ -8,17 +11,16 @@
  * @author Andreas Herz
  * @extends draw2d.policy.canvas.DecorationPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPolicy.extend({
-
+draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPolicy.extend(
+  /** @lends draw2d.policy.canvas.FadeoutDecorationPolicy.prototype */
+  {
+  
   NAME: "draw2d.policy.canvas.FadeoutDecorationPolicy",
 
   DEFAULT_FADEOUT_DURATION: 60,
   DEFAULT_ALPHA_DECREMENT: 0.05,
 
   /**
-   * @constructor
    * Creates a new fade out policy. Don't forget to install them into the canvas.
    *
    */
@@ -56,7 +58,7 @@ draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPo
   },
 
   /**
-   * @method
+   *
    *
    * Timerfucntion to show/hide the related ports
    * @private
@@ -94,7 +96,7 @@ draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPo
 
 
   /**
-   * @method
+   *
    *
    * @param {draw2d.Canvas} canvas
    * @param {Number} x the x-coordinate of the mouse down event
@@ -108,7 +110,7 @@ draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPo
   },
 
   /**
-   * @method
+   *
    *
    * @param {draw2d.Canvas} canvas
    * @param {Number} x the x-coordinate of the mouse event
@@ -122,7 +124,7 @@ draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPo
   },
 
   /**
-   * @method
+   *
    *
    * @param {draw2d.Canvas} canvas
    * @param {Number} dx The x diff between start of dragging and this event
@@ -141,7 +143,7 @@ draw2d.policy.canvas.FadeoutDecorationPolicy = draw2d.policy.canvas.DecorationPo
   },
 
   /**
-   * @method
+   *
    *
    * @param {draw2d.Canvas} canvas
    * @param {Number} x the x-coordinate of the mouse down event

@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.policy.figure.AntSelectionFeedbackPolicy
  *
@@ -5,9 +8,9 @@
  * Selection is indicated via rectangular handle that outlines the figure with a 1-pixel black
  * dotted line.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
+ *
  *       circle =new draw2d.shape.basic.Circle({diameter:50, x:90, y:50});
  *       circle.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
  *       canvas.add(circle);
@@ -17,14 +20,13 @@
  * @author Andreas Herz
  * @extends draw2d.policy.figure.SelectionFeedbackPolicy
  */
-import draw2d from '../../packages'
-
-draw2d.policy.figure.AntSelectionFeedbackPolicy = draw2d.policy.figure.SelectionFeedbackPolicy.extend({
+draw2d.policy.figure.AntSelectionFeedbackPolicy = draw2d.policy.figure.SelectionFeedbackPolicy.extend(
+  /** @lends draw2d.policy.figure.AntSelectionFeedbackPolicy.prototype */
+  {
 
   NAME: "draw2d.policy.figure.AntSelectionFeedbackPolicy",
 
   /**
-   * @constructor
    * Creates a new Router object
    */
   init: function (attr, setter, getter) {
@@ -33,7 +35,7 @@ draw2d.policy.figure.AntSelectionFeedbackPolicy = draw2d.policy.figure.Selection
 
 
   /**
-   * @method
+   *
    * Called by the framework of the Policy should show a resize handle for the given shape
    *
    * @param {draw2d.Canvas} canvas the responsible canvas
@@ -80,7 +82,7 @@ draw2d.policy.figure.AntSelectionFeedbackPolicy = draw2d.policy.figure.Selection
 
 
   /**
-   * @method
+   *
    * Callback if the figure has been moved
    *
    * @param figure

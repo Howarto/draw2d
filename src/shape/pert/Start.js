@@ -1,3 +1,6 @@
+import draw2d from '../../packages'
+
+
 /**
  * @class draw2d.shape.pert.Start
  *
@@ -7,9 +10,8 @@
  *
  * Double click on the Task name or the top middle number to change the value.
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     canvas.add( new draw2d.shape.pert.Start(),10,10);
  *     canvas.add( new draw2d.shape.pert.Activity(),80,130);
@@ -19,14 +21,13 @@
  *
  * @extends draw2d.shape.layout.VerticalLayout
  */
-import draw2d from '../../packages'
-
-draw2d.shape.pert.Start = draw2d.shape.layout.VerticalLayout.extend({
+draw2d.shape.pert.Start = draw2d.shape.layout.VerticalLayout.extend(
+  /** @lends draw2d.shape.pert.Start.prototype */
+  {
 
   NAME: "draw2d.shape.pert.Start",
 
   /**
-   * @constructor
    * Create a new instance
    *
    * @param {Object} [attr] the configuration of the shape
@@ -120,7 +121,7 @@ draw2d.shape.pert.Start = draw2d.shape.layout.VerticalLayout.extend({
   },
 
   /**
-   * @method
+   * 
    * Set the duration for the activity. This triggers a complete recalculation of the complete
    * diagram. No further calls are required
    *
@@ -168,7 +169,7 @@ draw2d.shape.pert.Start = draw2d.shape.layout.VerticalLayout.extend({
   },
 
   /**
-   * @method
+   * 
    * help method to create some labels
    *
    * @param {String} txt the label to display

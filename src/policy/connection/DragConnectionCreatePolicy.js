@@ -15,9 +15,8 @@
  * <br>
  *
  *
- * See the example:
  *
- *     @example preview small frame
+ * @example
  *
  *     // Override the default connection creation.
  *     //
@@ -37,14 +36,15 @@
  *
  * @extends draw2d.policy.connection.ConnectionCreatePolicy
  */
-import draw2d from '../../packages';
+import draw2d from '../../packages'
 
-draw2d.policy.connection.DragConnectionCreatePolicy = draw2d.policy.connection.ConnectionCreatePolicy.extend({
-
-    NAME : "draw2d.policy.connection.DragConnectionCreatePolicy",
+draw2d.policy.connection.DragConnectionCreatePolicy = draw2d.policy.connection.ConnectionCreatePolicy.extend(
+    /** @lends draw2d.policy.connection.DragConnectionCreatePolicy.prototype */
+    {
+    
+    NAME: "draw2d.policy.connection.DragConnectionCreatePolicy",
     
     /**
-     * @constructor
      *
      * Creates a new connection create policy instance
      */
@@ -58,7 +58,7 @@ draw2d.policy.connection.DragConnectionCreatePolicy = draw2d.policy.connection.C
     },
 
     /**
-     * @method
+     * 
      *
      * @param {draw2d.Canvas} canvas
      * @param {Number} x the x-coordinate of the mouse down event
@@ -109,7 +109,7 @@ draw2d.policy.connection.DragConnectionCreatePolicy = draw2d.policy.connection.C
     },
 
     /**
-     * @method
+     * 
      *
      * @param {draw2d.Canvas} canvas
      * @param {Number} dx The x diff between start of dragging and this event
@@ -191,7 +191,7 @@ draw2d.policy.connection.DragConnectionCreatePolicy = draw2d.policy.connection.C
 
 
     /**
-     * @method
+     * 
      *
      * @param {draw2d.Figure} figure the shape below the mouse or null
      * @param {Number} x the x-coordinate of the mouse down event
