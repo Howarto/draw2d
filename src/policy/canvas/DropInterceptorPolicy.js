@@ -88,7 +88,7 @@ draw2d.policy.canvas.DropInterceptorPolicy = draw2d.policy.canvas.CanvasPolicy.e
     // It is not allowed to connect ContextPort instances with allowed context.
     let portsAreContextPorts = connectInquirer instanceof draw2d.ContextPort &&
                                connectIntent instanceof draw2d.ContextPort;
-    if (portsAreContextPorts && connectInquirer.allowsContext(connectIntent.getContext()) && connectIntent.allowsContext(connectInquirer.getContext())) {
+    if (portsAreContextPorts && (!connectInquirer.allowsContext(connectIntent.getContext()) || !connectIntent.allowsContext(connectInquirer.getContext()))) {
       return null
     }
 

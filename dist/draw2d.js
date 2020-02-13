@@ -30140,7 +30140,7 @@ _packages2.default.policy.canvas.DropInterceptorPolicy = _packages2.default.poli
 
     // It is not allowed to connect ContextPort instances with allowed context.
     var portsAreContextPorts = connectInquirer instanceof _packages2.default.ContextPort && connectIntent instanceof _packages2.default.ContextPort;
-    if (portsAreContextPorts && connectInquirer.allowsContext(connectIntent.getContext()) && connectIntent.allowsContext(connectInquirer.getContext())) {
+    if (portsAreContextPorts && (!connectInquirer.allowsContext(connectIntent.getContext()) || !connectIntent.allowsContext(connectInquirer.getContext()))) {
       return null;
     }
 
