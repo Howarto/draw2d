@@ -6858,10 +6858,7 @@ _packages2.default.Canvas = Class.extend(
     this.installEditPolicy(new _packages2.default.policy.canvas.DefaultKeyboardPolicy()); // Handles the keyboard interaction
     this.installEditPolicy(new _packages2.default.policy.canvas.BoundingboxSelectionPolicy()); // Responsible for selection handling
     this.installEditPolicy(new _packages2.default.policy.canvas.DropInterceptorPolicy()); // Responsible for drop operations
-    this.installEditPolicy(new _packages2.default.policy.connection.ComposedConnectionCreatePolicy( // Responsible for connection creation....
-    [new _packages2.default.policy.connection.DragConnectionCreatePolicy(), // ....via drag/´drop
-    new _packages2.default.policy.connection.ClickConnectionCreatePolicy() // or clicking on the ports and canvas.
-    ]));
+    this.installEditPolicy(new _packages2.default.policy.connection.DragConnectionCreatePolicy()); // Responsible for connection creation...
 
     // Calculate all intersection between the different lines
     //

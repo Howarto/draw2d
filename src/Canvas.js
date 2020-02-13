@@ -138,12 +138,7 @@ draw2d.Canvas = Class.extend(
       this.installEditPolicy(new draw2d.policy.canvas.DefaultKeyboardPolicy())          // Handles the keyboard interaction
       this.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy())     // Responsible for selection handling
       this.installEditPolicy(new draw2d.policy.canvas.DropInterceptorPolicy())          // Responsible for drop operations
-      this.installEditPolicy(new draw2d.policy.connection.ComposedConnectionCreatePolicy(// Responsible for connection creation....
-        [
-          new draw2d.policy.connection.DragConnectionCreatePolicy(),  // ....via drag/´drop
-          new draw2d.policy.connection.ClickConnectionCreatePolicy()  // or clicking on the ports and canvas.
-        ])
-      )
+      this.installEditPolicy(new draw2d.policy.connection.DragConnectionCreatePolicy())  // Responsible for connection creation...
 
       // Calculate all intersection between the different lines
       //
