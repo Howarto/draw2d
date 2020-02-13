@@ -21,7 +21,7 @@ import draw2d from '../../packages'
 draw2d.policy.canvas.DropInterceptorPolicy = draw2d.policy.canvas.CanvasPolicy.extend(
   /** @lends draw2d.policy.canvas.DropInterceptorPolicy.prototype */
   {
-  
+
   NAME: "draw2d.policy.canvas.DropInterceptorPolicy",
 
   /**
@@ -33,7 +33,7 @@ draw2d.policy.canvas.DropInterceptorPolicy = draw2d.policy.canvas.CanvasPolicy.e
 
 
   /**
-   * 
+   *
    * Called if the user want connect a port with any kind draw2d.Figure.<br>
    * Return a non <b>null</b> value if the interceptor accept the connect event.<br>
    * <br>
@@ -85,10 +85,10 @@ draw2d.policy.canvas.DropInterceptorPolicy = draw2d.policy.canvas.CanvasPolicy.e
       return null;
     }
 
-    // It is not allowed to connect ContextPort instances without the same context.
+    // It is not allowed to connect ContextPort instances with allowed context.
     let portsAreContextPorts = connectInquirer instanceof draw2d.ContextPort &&
                                connectIntent instanceof draw2d.ContextPort;
-    if (portsAreContextPorts && connectInquirer.getContext() !== connectIntent.getContext()) {
+    if (portsAreContextPorts && connectInquirer.allowsContext(connectIntent.getContext()) && connectIntent.allowsContext(connectInquirer.getContext())) {
       return null
     }
 

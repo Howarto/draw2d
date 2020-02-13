@@ -21,6 +21,7 @@ draw2d.ContextPort = draw2d.HybridPort.extend({
     this._super(attr, setter, getter);
 
     this.context = '';
+    this.allowedContexts = [''];
   },
 
   setContext(context) {
@@ -29,6 +30,14 @@ draw2d.ContextPort = draw2d.HybridPort.extend({
 
   getContext() {
     return this.context;
+  },
+
+  setAllowedContexts(contexts) {
+    this.allowedContexts = contexts;
+  },
+
+  allowsContext(context) {
+    return this.allowedContexts.includes(context);
   }
 
 });

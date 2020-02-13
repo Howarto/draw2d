@@ -51,10 +51,10 @@ draw2d.policy.port.IntrusivePortsFeedbackPolicy = draw2d.policy.port.PortFeedbac
     // The available connections are:
     // Input -> Output
     // Output -> Input
-    // Context with 'x' context -> Context with 'x' context
+    // Context with 'x' context that allows 'y' context -> Context with 'y' context that allows 'x' context
     allPorts.grep(function (p) {
       return ((figure instanceof draw2d.ContextPort && p instanceof draw2d.ContextPort) &&
-              (figure.getContext() === p.getContext())) ||
+              (figure.allowsContext(p.getContext()) && p.allowsContext(figure.getContext()))) ||
              (!(figure instanceof draw2d.ContextPort) &&
               ((p instanceof draw2d.HybridPort) || (figure instanceof draw2d.HybridPort) || (p.NAME != figure.NAME && p.parent !== figure.parent)));
     })

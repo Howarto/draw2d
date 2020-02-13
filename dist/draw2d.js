@@ -9385,6 +9385,7 @@ _packages2.default.ContextPort = _packages2.default.HybridPort.extend({
     this._super(attr, setter, getter);
 
     this.context = '';
+    this.allowedContexts = [''];
   },
 
   setContext: function setContext(context) {
@@ -9392,6 +9393,12 @@ _packages2.default.ContextPort = _packages2.default.HybridPort.extend({
   },
   getContext: function getContext() {
     return this.context;
+  },
+  setAllowedContexts: function setAllowedContexts(contexts) {
+    this.allowedContexts = contexts;
+  },
+  allowsContext: function allowsContext(context) {
+    return this.allowedContexts.includes(context);
   }
 }); /**
      * @class draw2d.ContextPort
@@ -30081,7 +30088,7 @@ _packages2.default.policy.canvas.DropInterceptorPolicy = _packages2.default.poli
   },
 
   /**
-   * 
+   *
    * Called if the user want connect a port with any kind draw2d.Figure.<br>
    * Return a non <b>null</b> value if the interceptor accept the connect event.<br>
    * <br>
@@ -30131,9 +30138,9 @@ _packages2.default.policy.canvas.DropInterceptorPolicy = _packages2.default.poli
       return null;
     }
 
-    // It is not allowed to connect ContextPort instances without the same context.
+    // It is not allowed to connect ContextPort instances with allowed context.
     var portsAreContextPorts = connectInquirer instanceof _packages2.default.ContextPort && connectIntent instanceof _packages2.default.ContextPort;
-    if (portsAreContextPorts && connectInquirer.getContext() !== connectIntent.getContext()) {
+    if (portsAreContextPorts && connectInquirer.allowsContext(connectIntent.getContext()) && connectIntent.allowsContext(connectInquirer.getContext())) {
       return null;
     }
 
@@ -38388,9 +38395,9 @@ _packages2.default.policy.port.IntrusivePortsFeedbackPolicy = _packages2.default
     // The available connections are:
     // Input -> Output
     // Output -> Input
-    // Context with 'x' context -> Context with 'x' context
+    // Context with 'x' context that allows 'y' context -> Context with 'y' context that allows 'x' context
     allPorts.grep(function (p) {
-      return figure instanceof _packages2.default.ContextPort && p instanceof _packages2.default.ContextPort && figure.getContext() === p.getContext() || !(figure instanceof _packages2.default.ContextPort) && (p instanceof _packages2.default.HybridPort || figure instanceof _packages2.default.HybridPort || p.NAME != figure.NAME && p.parent !== figure.parent);
+      return figure instanceof _packages2.default.ContextPort && p instanceof _packages2.default.ContextPort && figure.allowsContext(p.getContext()) && p.allowsContext(figure.getContext()) || !(figure instanceof _packages2.default.ContextPort) && (p instanceof _packages2.default.HybridPort || figure instanceof _packages2.default.HybridPort || p.NAME != figure.NAME && p.parent !== figure.parent);
     });
 
     this.tweenable = new _shifty.Tweenable();
