@@ -38396,8 +38396,9 @@ _packages2.default.policy.port.IntrusivePortsFeedbackPolicy = _packages2.default
     // Input -> Output
     // Output -> Input
     // Context with 'x' context that allows 'y' context -> Context with 'y' context that allows 'x' context
+    debugger;
     allPorts.grep(function (p) {
-      return figure instanceof _packages2.default.ContextPort && p instanceof _packages2.default.ContextPort && figure.allowsContext(p.getContext()) && p.allowsContext(figure.getContext()) || !(figure instanceof _packages2.default.ContextPort) && (p instanceof _packages2.default.HybridPort || figure instanceof _packages2.default.HybridPort || p.NAME != figure.NAME && p.parent !== figure.parent);
+      return figure instanceof _packages2.default.ContextPort && p instanceof _packages2.default.ContextPort && figure.allowsContext(p.getContext()) && p.allowsContext(figure.getContext()) || !(figure instanceof _packages2.default.ContextPort) && !(p instanceof _packages2.default.ContextPort) && (p instanceof _packages2.default.HybridPort || figure instanceof _packages2.default.HybridPort || p.NAME != figure.NAME && p.parent !== figure.parent);
     });
 
     this.tweenable = new _shifty.Tweenable();

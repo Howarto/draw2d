@@ -55,7 +55,7 @@ draw2d.policy.port.IntrusivePortsFeedbackPolicy = draw2d.policy.port.PortFeedbac
     allPorts.grep(function (p) {
       return ((figure instanceof draw2d.ContextPort && p instanceof draw2d.ContextPort) &&
               (figure.allowsContext(p.getContext()) && p.allowsContext(figure.getContext()))) ||
-             (!(figure instanceof draw2d.ContextPort) &&
+             (((!(figure instanceof draw2d.ContextPort) && !(p instanceof draw2d.ContextPort))) &&
               ((p instanceof draw2d.HybridPort) || (figure instanceof draw2d.HybridPort) || (p.NAME != figure.NAME && p.parent !== figure.parent)));
     })
 
