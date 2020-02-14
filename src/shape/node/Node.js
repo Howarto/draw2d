@@ -377,11 +377,11 @@ draw2d.shape.node.Node = draw2d.Figure.extend(
     else if (port instanceof draw2d.OutputPort) {
       this.outputPorts.add(port)
     }
-    else if (port instanceof draw2d.HybridPort) {
-      this.hybridPorts.add(port)
-    }
     else if (port instanceof draw2d.ContextPort) {
       this.contextPorts.add(port)
+    }
+    else if (port instanceof draw2d.HybridPort) {
+      this.hybridPorts.add(port)
     }
 
     if ((typeof locator !== "undefined") && (locator instanceof draw2d.layout.locator.Locator)) {
