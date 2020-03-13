@@ -29994,9 +29994,9 @@ _packages2.default.policy.canvas.DefaultKeyboardPolicy = _packages2.default.poli
   },
 
   /**
-   * 
+   *
    * Callback if the user press a key.<br>
-   * This implementation checks only if the <b>DEL</b> has been pressed and creates an
+   * This implementation checks only if the <b>DEL</b> or <b>Backspace</b> has been pressed and creates an
    * CommandDelete if this happens.
    *
    * @param {draw2d.Canvas} canvas the related canvas
@@ -30006,9 +30006,8 @@ _packages2.default.policy.canvas.DefaultKeyboardPolicy = _packages2.default.poli
    * @private
    **/
   onKeyDown: function onKeyDown(canvas, keyCode, shiftKey, ctrlKey) {
-    //
-    if (keyCode === 46 && canvas.getPrimarySelection() !== null) {
-      // create a single undo/redo transaction if the user delete more than one element. 
+    if ((keyCode === 46 || keyCode === 8) && canvas.getPrimarySelection() !== null) {
+      // create a single undo/redo transaction if the user delete more than one element.
       // This happens with command stack transactions.
       //
       canvas.getCommandStack().startTransaction(_packages2.default.Configuration.i18n.command.deleteShape);
